@@ -10,7 +10,7 @@
     />
 
     <!-- Hojas de Estilo -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- === METADATOS === -->
   <meta property="og:title" content="Ugarte Flores Abogados - Protegemos tu libertad y patrimonio.">
@@ -83,21 +83,28 @@
         </button>
 
         <!-- Menú de navegación -->
-        <nav class="nav-menu" id="navMenu">
-          <ul class="nav-list">
-            <li><a href="#inicio" class="nav-link">Inicio</a></li>
-            <li><a href="#servicios" class="nav-link">Servicios</a></li>
-            <li><a href="#temas-legales" class="nav-link">Temas Legales</a></li>
-            <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
-            <li><a href="#instagram" class="nav-link">Instagram</a></li>
-            <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          </ul>
-          <div class="nav-actions">
-            <button class="btn btn-primary" id="btnAgendarHeader">
-              Agendar Cita
-            </button>
-          </div>
-        </nav>
+<nav class="nav-menu" id="navMenu">
+  <ul class="nav-list">
+    <li><a href="/#inicio" class="nav-link">Inicio</a></li>
+    <li class="dropdown">
+      <a href="/#servicios" class="nav-link dropdown-toggle">
+        Servicios <i class="fas fa-chevron-down dropdown-arrow"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="/derecho-civil.html" class="dropdown-item">Derecho Civil</a></li>
+        <li><a href="/derecho-mercantil.html" class="dropdown-item">Derecho Mercantil</a></li>
+        <li><a href="/derecnavho-penal.html" class="dropdown-item">Derecho Penal</a></li>
+      </ul>
+    </li>
+    <li><a href="/#temas-legales" class="nav-link">Temas Legales</a></li>
+    <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-primary" id="btnAgendarHeader">
+      Agendar Cita
+    </button>
+  </div>
+</nav>
       </div>
     </header>
 
@@ -125,7 +132,7 @@
               >Enviar WhatsApp</a
             >
           </div>
-          <div class="hero-stats">
+          <!-- <div class="hero-stats">
             <div class="stat-item">
               <span class="stat-number" id="statYears">0</span>
               <span class="stat-label">Años</span>
@@ -139,7 +146,7 @@
               <span class="stat-label">Clientes</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <!-- SERVICIOS -->
@@ -157,9 +164,9 @@
                 Litigios de alta complejidad, recuperación de inmuebles y
                 contratos.
               </p>
-              <button class="service-link" onclick="openCalendly()">
-                Consultar <i class="fas fa-arrow-right"></i>
-              </button>
+              <a href="derecho-civil.html" class="service-link">
+  Consultar <i class="fas fa-arrow-right"></i>
+</a>
             </div>
             <div class="service-card">
               <div class="service-icon"><i class="fas fa-chart-line"></i></div>
@@ -446,6 +453,6 @@
       async
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

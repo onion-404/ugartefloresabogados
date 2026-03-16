@@ -1267,3 +1267,118 @@ body.no-scroll {
 .mt-4 {
     margin-top: 2rem;
 }
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 2px;
+   
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.7rem 1.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background: var(--offwhite);
+    color: var(--accent);
+    padding-left: 2rem;
+}
+
+/* Header scrolled - ajustes de color */
+.header.scrolled .dropdown-menu {
+    background: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.header.scrolled .dropdown-item {
+    color: var(--primary);
+}
+
+.header.scrolled .dropdown-item:hover {
+    background: var(--offwhite);
+    color: var(--accent);
+}
+
+/* ===== DROPDOWN EN MÓVIL ===== */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static;
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        background: var(--offwhite);
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        padding: 0.5rem 0 0.5rem 1rem;
+        margin-top: 0.5rem;
+        min-width: 100%;
+        border-left: 3px solid var(--accent);
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-toggle {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .dropdown-item {
+        white-space: normal;
+        padding: 0.8rem 1rem;
+    }
+    
+    .dropdown-item:hover {
+        padding-left: 1.5rem;
+    }
+}

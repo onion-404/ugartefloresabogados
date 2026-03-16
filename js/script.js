@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initCalendly();
     initButtons();
     initStatsCounter();
+    initDropdowns(); // Nueva función para dropdowns
     
     // Inicializar carruseles
     initLegalCarousel();
     initTestimonialsCarousel();
-    initInstagramCarousel(); // Versión con códigos reales y altura corregida
+    initInstagramCarousel();
     
     initYear();
     
@@ -89,12 +90,76 @@ function initHeader() {
     updateHeader();
 }
 
-// ===== MENÚ MÓVIL =====
+// ===== DROPDOWN MENU =====
+function initDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Función para cerrar todos los dropdowns
+    function closeAllDropdowns() {
+        dropdowns.forEach(d => {
+            d.classList.remove('active');
+        });
+    }
+    
+    // Para desktop: hover
+    if (window.innerWidth > 768) {
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', () => {
+                dropdown.classList.add('active');
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                dropdown.classList.remove('active');
+            });
+        });
+    } 
+    // Para móvil: click
+    else {
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            
+            if (toggle) {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Cerrar otros dropdowns
+                    dropdowns.forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle el actual
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+        
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+        
+        // Prevenir que el clic dentro del dropdown lo cierre
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    }
+}
+
+// ===== MENÚ MÓVIL MEJORADO =====
 function initMobileMenu() {
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('navMenu');
+    
     if (!toggle || !menu) return;
 
+    // Toggle del menú principal
     toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         
@@ -112,11 +177,17 @@ function initMobileMenu() {
                 icon.classList.add('fa-bars');
                 toggle.classList.remove('active');
                 document.body.classList.remove('no-scroll');
+                
+                // Cerrar dropdowns al cerrar el menú
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    d.classList.remove('active');
+                });
             }
         }
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Cerrar menú al hacer clic en enlaces (excepto dropdowns)
+    document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
             const icon = toggle.querySelector('i');
@@ -126,9 +197,15 @@ function initMobileMenu() {
                 toggle.classList.remove('active');
             }
             document.body.classList.remove('no-scroll');
+            
+            // Cerrar dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => {
+                d.classList.remove('active');
+            });
         });
     });
     
+    // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (menu.classList.contains('active') && 
             !menu.contains(e.target) && 
@@ -141,9 +218,15 @@ function initMobileMenu() {
                 toggle.classList.remove('active');
             }
             document.body.classList.remove('no-scroll');
+            
+            // Cerrar dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => {
+                d.classList.remove('active');
+            });
         }
     });
     
+    // Re-inicializar dropdowns al redimensionar
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && menu.classList.contains('active')) {
             menu.classList.remove('active');
@@ -154,7 +237,15 @@ function initMobileMenu() {
                 toggle.classList.remove('active');
             }
             document.body.classList.remove('no-scroll');
+            
+            // Cerrar dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => {
+                d.classList.remove('active');
+            });
         }
+        
+        // Re-inicializar dropdowns según el tamaño
+        initDropdowns();
     });
 }
 
@@ -506,7 +597,7 @@ function initInstagramCarousel() {
             width: '350px',
             minWidth: '350px',
             height: 'auto',
-            minHeight: '450px', // Altura fija para permitir ver la imagen y descripción
+            minHeight: '450px',
             background: '#FFF',
             overflow: 'hidden',
             borderRadius: '8px',

@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Ugarte Flores Abogados</title>
+    <meta
+      name="description"
+      content="Comunícate con nuestro equipo legal. Estamos en xxxxx, CDMX. Ofrecemos consultas presenciales y vía Zoom."
+    />
+
+    <!-- Hojas de Estilo -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/contacto.css" />
+
+    <!-- Metadatos -->
+    <meta property="og:title" content="Contacto | Ugarte Flores Abogados" />
+    <meta
+      property="og:description"
+      content="Comunícate con nuestro equipo legal. Estamos en xxxx, CDMX. Ofrecemos consultas presenciales y vía Zoom."
+    />
+    <meta
+      property="og:image"
+      content="https://ugartefloresabogados.vercel.app/img/favicon.png"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:url"
+      content="https://ugartefloresabogados.vercel.app/contacto"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Ugarte Flores Abogados" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contacto | Ugarte Flores Abogados" />
+    <meta
+      name="twitter:description"
+      content="Comunícate con nuestro equipo legal. Estamos en xxxxx, CDMX. Ofrecemos consultas presenciales y videollamada."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ugartefloresabogados.vercel.app/img/favicon.png"
+    />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Calendly -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="loader-spinner"></div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/525512345678?text=Hola%2C%20necesito%20comunicarme%20con%20el%20equipo%20legal."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+      <span>Contacto Inmediato</span>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container header-container">
+        <div class="logo">
+          <a href="/"
+            ><img src="/img/logo.png" alt="Ugarte Flores Abogados"
+          /></a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li><a href="/#inicio" class="nav-link">Inicio</a></li>
+            <li class="dropdown">
+              <a href="/#servicios" class="nav-link dropdown-toggle">
+                Servicios <i class="fas fa-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/derecho-civil.html" class="dropdown-item"
+                    >Derecho Civil</a
+                  >
+                </li>
+                <li>
+                  <a href="/derecho-mercantil.html" class="dropdown-item"
+                    >Derecho Mercantil</a
+                  >
+                </li>
+                <li>
+                  <a href="/derecnavho-penal.html" class="dropdown-item"
+                    >Derecho Penal</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/#temas-legales" class="nav-link">Temas Legales</a>
+            </li>
+            <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn btn-primary" id="btnAgendarHeader">
+              Agendar Cita
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO DE CONTACTO -->
+      <section class="hero hero--contact">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <span class="hero-badge">Comunicación directa</span>
+          <h1 class="hero-title">Estamos aquí para <span>ayudarte</span></h1>
+          <p class="hero-subtitle">
+            Ya sea que necesites una consulta urgente, una reunión de estrategia
+            o simplemente quieras conocer más sobre nuestros servicios, nuestro
+            equipo está listo para atenderte.
+          </p>
+        </div>
+      </section>
+
+      <!-- INFORMACIÓN DE CONTACTO Y FORMULARIO -->
+      <section class="contact-main">
+        <div class="container">
+          <div class="contact-grid">
+            <!-- Columna izquierda: Información -->
+            <div class="contact-info-col" data-aos="fade-right">
+              <div class="section-header" style="text-align: left">
+                <span class="section-eyebrow">Ponte en contacto</span>
+                <h2 class="section-title" style="text-align: left">
+                  Hablemos de <span>tu caso</span>
+                </h2>
+              </div>
+
+              <p class="contact-description">
+                En Ugarte Flores Abogados ofrecemos diferentes canales de
+                comunicación para adaptarnos a tus necesidades. Desde una
+                videollamada rápida hasta una reunión presencial en nuestras
+                oficinas.
+              </p>
+
+              <div class="contact-details">
+                <!-- Teléfono -->
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="detail-content">
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+525555555555">+52 (55) 5555-5555</a></p>
+                    <p><a href="tel:+525555555556">+52 (55) 5555-5556</a></p>
+                    <span class="detail-note">Lun-Vie 9:00 a 18:00</span>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="detail-content">
+                    <h3>Email</h3>
+                    <p>
+                      <a href="mailto:contacto@ugarteflores.com"
+                        >contacto@ugarteflores.com</a
+                      >
+                    </p>
+                    <span class="detail-note">Respuesta en 24h hábiles</span>
+                  </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="detail-content">
+                    <h3>Oficina</h3>
+                    <p>
+                      Av. Presidente Masaryk 101<br />
+                      Col. Polanco, CDMX<br />
+                      C.P. 11560
+                    </p>
+                    <a
+                      href="https://goo.gl/maps/..."
+                      target="_blank"
+                      class="detail-link"
+                    >
+                      <i class="fas fa-external-link-alt"></i> Cómo llegar
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Horario -->
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="detail-content">
+                    <h3>Horario de atención</h3>
+                    <p>
+                      Lunes a Viernes: 9:00 - 18:00<br />
+                      Sábados: Previa cita<br />
+                      Domingos: Urgencias vía WhatsApp
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Redes sociales -->
+              <div class="contact-social">
+                <h3>Síguenos en:</h3>
+                <div class="social-links">
+                  <a href="#" class="social-link" target="_blank"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a
+                    href="https://www.instagram.com/ugartefloresabogados/"
+                    class="social-link"
+                    target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="#" class="social-link" target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="social-link" target="_blank"
+                    ><i class="fab fa-x-twitter"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna derecha: Formulario -->
+            <div class="contact-form-col" data-aos="fade-left">
+              <div class="form-card">
+                <h3>Envíanos tu consulta</h3>
+                <p>
+                  Déjanos tus datos y un asesor te contactará en menos de 24
+                  horas.
+                </p>
+
+                <form id="contactFormMain">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="Nombre completo *"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row dual">
+                    <div class="form-group">
+                      <input type="email" placeholder="Email *" required />
+                    </div>
+                    <div class="form-group">
+                      <input type="tel" placeholder="Teléfono *" required />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <select required>
+                        <option value="" disabled selected>
+                          Área de interés *
+                        </option>
+                        <option value="civil">Derecho Civil</option>
+                        <option value="mercantil">Derecho Mercantil</option>
+                        <option value="penal">Derecho Penal</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <textarea
+                        placeholder="Describe brevemente tu caso *"
+                        rows="5"
+                        requiredvisitanosvisítan
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group checkbox">
+                      <label>
+                        <input type="checkbox" required />
+                        <span
+                          >Acepto la
+                          <a href="/aviso-privacidad">política de privacidad</a>
+                          y el tratamiento de mis datos *</span
+                        >
+                      </label>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-large btn-block"
+                  >
+                    Enviar mensaje <i class="fas fa-paper-plane"></i>
+                  </button>
+                </form>
+
+                <p class="form-note">
+                  * Campos obligatorios. Tu información está protegida conforme
+                  a la Ley de Protección de Datos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAPA -->
+      <section class="contact-map-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Ubicación</span>
+            <h2 class="section-title">Visítanos en <span>CDMX</span></h2>
+          </div>
+        </div>
+        <div class="map-container" data-aos="zoom-in">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.865247384735!2d-99.16853968457818!3d19.42701434523897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35c2b9c2c5%3A0x9b9f9f9f9f9f9f9f!2sPolanco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Oficinas en CDMX"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- OPCIONES DE CONTACTO RÁPIDO -->
+      <section class="quick-contact">
+        <div class="container">
+          <div class="quick-grid">
+            <div class="quick-card" data-aos="flip-left">
+              <i class="fas fa-video"></i>
+              <h3>Videollamada</h3>
+              <p>Reunión virtual de 30 minutos.</p>
+              <button class="btn btn-primary btn-small" id="btnAgendarQuick">
+                Agendar ahora
+              </button>
+            </div>
+
+            <div class="quick-card" data-aos="flip-left" data-aos-delay="150">
+              <i class="fab fa-whatsapp"></i>
+              <h3>WhatsApp</h3>
+              <p>Atención prioritaria para casos urgentes.</p>
+              <a
+                href="https://wa.me/525512345678?text=Hola%2C%20necesito%20atenci%C3%B3n%20urgente."
+                class="btn btn-primary btn-small"
+                target="_blank"
+              >
+                Escribir ahora
+              </a>
+            </div>
+
+            <div class="quick-card" data-aos="flip-left" data-aos-delay="300">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Presencial</h3>
+              <p>Cita en nuestras oficinas.</p>
+              <button
+                class="btn btn-primary btn-small"
+                id="btnAgendarPresencial"
+              >
+                Solicitar cita
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="final-cta">
+        <div class="container">
+          <div class="cta-card">
+            <h2 class="cta-title">¿Necesitas ayuda legal inmediata?</h2>
+            <p class="cta-subtitle">
+              No esperes más, tu tranquilidad no tiene precio.
+            </p>
+            <button class="btn btn-primary btn-large" id="btnAgendarCta">
+              Agendar Consultoría
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <a href="/"
+              ><img src="/img/logo.png" alt="Ugarte Flores Abogados"
+            /></a>
+            <p>Estrategia. Defensa. Resultados.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Enlaces</h4>
+            <ul>
+              <li><a href="/#inicio">Inicio</a></li>
+              <li><a href="/#servicios">Servicios</a></li>
+              <li><a href="/#temas-legales">Temas Legales</a></li>
+              <li><a href="/#testimonios">Testimonios</a></li>
+              <li><a href="/contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Redes</h4>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/ugartefloresabogados/"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="currentYear"></span> Ugarte Flores Abogados. Todos
+            los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MODALES -->
+    <div id="topicModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Evaluación de Caso</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre completo" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Teléfono" required />
+          </div>
+          <div class="form-group">
+            <textarea
+              placeholder="Describe tu caso"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/contacto.js"></script>
+  </body>
+</html>
