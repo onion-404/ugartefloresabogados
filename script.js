@@ -1,6 +1,6 @@
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', () => {
-    initPreloader(); // Ahora es real, no timeout
+    initPreloader();
     initAOS();
     initHeader();
     initMobileMenu();
@@ -13,9 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar carruseles
     initLegalCarousel();
     initTestimonialsCarousel();
-    initInstagramCarousel();
+    initInstagramCarousel(); // Versión con códigos reales y altura corregida
     
     initYear();
+    
+    // Cargar script de Instagram después de insertar los bloques
+    loadInstagramEmbed();
 });
 
 // ===== PRELOADER REAL =====
@@ -43,13 +46,29 @@ function initPreloader() {
     }, 5000);
 }
 
+// ===== CARGAR SCRIPT DE INSTAGRAM =====
+function loadInstagramEmbed() {
+    // Verificar si ya existe el script
+    if (!document.querySelector('script[src*="instagram.com/embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = '//www.instagram.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+    } else {
+        // Si ya existe, forzar la renderización de nuevos bloques
+        if (window.instgrm) {
+            window.instgrm.Embeds.process();
+        }
+    }
+}
+
 // ===== AOS =====
 function initAOS() {
     if (typeof AOS !== 'undefined') {
         AOS.init({ 
             duration: 800, 
             once: true,
-            disable: window.innerWidth < 768 // Desactivar en móvil para mejor rendimiento
+            disable: window.innerWidth < 768
         });
     }
 }
@@ -67,7 +86,7 @@ function initHeader() {
     }
     
     window.addEventListener('scroll', updateHeader);
-    updateHeader(); // Ejecutar al inicio
+    updateHeader();
 }
 
 // ===== MENÚ MÓVIL =====
@@ -76,42 +95,63 @@ function initMobileMenu() {
     const menu = document.getElementById('navMenu');
     if (!toggle || !menu) return;
 
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
         menu.classList.toggle('active');
+        
         const icon = toggle.querySelector('i');
         if (icon) {
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        }
-        
-        if (menu.classList.contains('active')) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                toggle.classList.add('active');
+                document.body.classList.add('no-scroll');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                toggle.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
         }
     });
 
-    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
             const icon = toggle.querySelector('i');
             if (icon) {
-                icon.classList.add('fa-bars');
                 icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                toggle.classList.remove('active');
             }
             document.body.classList.remove('no-scroll');
         });
     });
     
-    // Cerrar menú al redimensionar a desktop
+    document.addEventListener('click', (e) => {
+        if (menu.classList.contains('active') && 
+            !menu.contains(e.target) && 
+            !toggle.contains(e.target)) {
+            menu.classList.remove('active');
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                toggle.classList.remove('active');
+            }
+            document.body.classList.remove('no-scroll');
+        }
+    });
+    
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && menu.classList.contains('active')) {
             menu.classList.remove('active');
             const icon = toggle.querySelector('i');
             if (icon) {
-                icon.classList.add('fa-bars');
                 icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                toggle.classList.remove('active');
             }
             document.body.classList.remove('no-scroll');
         }
@@ -143,10 +183,8 @@ function initSmoothScroll() {
 
 // ===== MODALES =====
 function initModals() {
-    const modals = document.querySelectorAll('.modal');
     const closeBtns = document.querySelectorAll('.close-modal');
     
-    // Abrir modal de contacto
     document.getElementById('btnEnviarCaso')?.addEventListener('click', (e) => {
         e.preventDefault();
         openModal('contactModal');
@@ -157,7 +195,6 @@ function initModals() {
         openModal('contactModal');
     });
 
-    // Cerrar modales
     closeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const modal = btn.closest('.modal');
@@ -171,7 +208,6 @@ function initModals() {
         }
     });
     
-    // Formulario
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
         showNotification('Hemos recibido tu caso. Un asesor te contactará en breve.', 'success');
@@ -217,9 +253,7 @@ function showNotification(message, type) {
 }
 
 // ===== CALENDLY =====
-function initCalendly() {
-    // Calendly ya está cargado desde el CDN en HTML
-}
+function initCalendly() {}
 
 window.openCalendly = () => {
     if (window.Calendly) {
@@ -255,7 +289,6 @@ function initStatsCounter() {
     const clients = document.getElementById('statClients');
     if (!years || !cases || !clients) return;
 
-    // Reset
     years.textContent = '0';
     cases.textContent = '0';
     clients.textContent = '0';
@@ -263,9 +296,9 @@ function initStatsCounter() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startCounter(years, 15);
-                startCounter(cases, 500);
-                startCounter(clients, 750);
+                startCounter(years, 10);
+                startCounter(cases, 300);
+                startCounter(clients, 150);
                 observer.unobserve(entry.target);
             }
         });
@@ -341,7 +374,7 @@ class Carousel {
         if (!firstCard) return;
         
         const cardWidth = firstCard.offsetWidth;
-        const gap = window.innerWidth <= 768 ? 16 : 32; // Responsive gap
+        const gap = window.innerWidth <= 768 ? 16 : 32;
         
         this.cardsPerView = Math.max(1, Math.floor((viewportWidth + gap) / (cardWidth + gap)));
         this.maxIndex = Math.max(0, this.items.length - this.cardsPerView);
@@ -363,7 +396,7 @@ class Carousel {
         if (this.currentIndex < this.maxIndex) {
             this.currentIndex++;
         } else {
-            this.currentIndex = 0; // Loop
+            this.currentIndex = 0;
         }
         this.updateTransform();
     }
@@ -372,7 +405,7 @@ class Carousel {
         if (this.currentIndex > 0) {
             this.currentIndex--;
         } else {
-            this.currentIndex = this.maxIndex; // Loop
+            this.currentIndex = this.maxIndex;
         }
         this.updateTransform();
     }
@@ -451,30 +484,73 @@ function initTestimonialsCarousel() {
     });
 }
 
-// ===== CARRUSEL DE INSTAGRAM =====
+// ===== CARRUSEL DE INSTAGRAM CON CÓDIGOS REALES Y ALTURA CORREGIDA =====
 function initInstagramCarousel() {
-    const posts = [
-        'https://images.unsplash.com/photo-1589829545856-d10d557cf95f',
-        'https://images.unsplash.com/photo-1557804506-669a67965ba0',
-        'https://images.unsplash.com/photo-1551836022-4c4c79ecde51',
-        'https://images.unsplash.com/photo-1450101499163-c8848c66ca85',
-        'https://images.pexels.com/photos/6863193/pexels-photo-6863193.jpeg',
-        'https://images.unsplash.com/photo-1507679799987-c73779587ccf'
+    // Códigos de inserción reales de Instagram
+    const instagramCodes = [
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVwoS6cEQet/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
+        
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVhp4BEERsy/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
+        
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVPYzbGERlZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
+        
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVM-h6kEa16/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`
     ];
 
-    new Carousel('instagramTrack', 'instagramPrevBtn', 'instagramNextBtn', posts, (src) => {
-        const post = document.createElement('div');
-        post.className = 'instagram-post';
-        post.innerHTML = `
-            <img src="${src}?auto=format&fit=crop&w=500&q=80" alt="Instagram">
-            <div class="post-overlay">
-                <i class="fab fa-instagram"></i>
-                <span>Ver en Instagram</span>
-            </div>
-        `;
-        post.addEventListener('click', () => {
-            window.open('https://www.instagram.com/ugartefloresabogados/', '_blank');
+    new Carousel('instagramTrack', 'instagramPrevBtn', 'instagramNextBtn', instagramCodes, (code) => {
+        const container = document.createElement('div');
+        container.className = 'instagram-post';
+        
+        // Estilos específicos para contener los bloques de Instagram
+        Object.assign(container.style, {
+            width: '350px',
+            minWidth: '350px',
+            height: 'auto',
+            minHeight: '450px', // Altura fija para permitir ver la imagen y descripción
+            background: '#FFF',
+            overflow: 'hidden',
+            borderRadius: '8px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
         });
-        return post;
+        
+        // Insertar el código HTML
+        container.innerHTML = code;
+        
+        // Hacer que el bloque de Instagram ocupe toda la altura disponible
+        const style = document.createElement('style');
+        style.textContent = `
+            .instagram-post .instagram-media {
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                min-height: 450px !important;
+                margin: 0 !important;
+                box-sizing: border-box !important;
+            }
+        `;
+        container.appendChild(style);
+        
+        return container;
     });
+    
+    // Procesar los bloques después de insertarlos y ajustar altura
+    setTimeout(() => {
+        if (window.instgrm) {
+            window.instgrm.Embeds.process();
+        }
+        
+        // Ajustar altura de los bloques después de cargar
+        const adjustHeight = () => {
+            document.querySelectorAll('.instagram-post .instagram-media').forEach(el => {
+                if (el) {
+                    el.style.minHeight = '450px';
+                    el.style.height = 'auto';
+                }
+            });
+        };
+        
+        setTimeout(adjustHeight, 1000);
+        setTimeout(adjustHeight, 2000);
+    }, 500);
 }
