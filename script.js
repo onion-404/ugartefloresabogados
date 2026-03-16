@@ -1,6 +1,6 @@
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', () => {
-    initLoader();
+    initPreloader(); // Ahora es real, no timeout
     initAOS();
     initHeader();
     initMobileMenu();
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initButtons();
     initStatsCounter();
     
-    // Inicializar los 3 carruseles con sus datos
+    // Inicializar carruseles
     initLegalCarousel();
     initTestimonialsCarousel();
     initInstagramCarousel();
@@ -18,31 +18,56 @@ document.addEventListener('DOMContentLoaded', () => {
     initYear();
 });
 
-// ===== LOADER =====
-function initLoader() {
+// ===== PRELOADER REAL =====
+function initPreloader() {
     const loader = document.getElementById('loader');
+    
+    // Prevenir scroll mientras el loader está visible
+    document.body.classList.add('no-scroll');
+    
+    // Esperar a que todo el contenido esté cargado
     window.addEventListener('load', () => {
-        setTimeout(() => loader?.classList.add('hidden'), 800);
+        // Pequeño retraso para suavizar la transición
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        }, 500);
     });
+    
+    // Fallback por si algo tarda demasiado (máx 5 segundos)
+    setTimeout(() => {
+        if (!loader.classList.contains('hidden')) {
+            loader.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        }
+    }, 5000);
 }
 
 // ===== AOS =====
 function initAOS() {
     if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 800, once: true });
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            disable: window.innerWidth < 768 // Desactivar en móvil para mejor rendimiento
+        });
     }
 }
 
 // ===== HEADER SCROLL =====
 function initHeader() {
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
+    
+    function updateHeader() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }
+    
+    window.addEventListener('scroll', updateHeader);
+    updateHeader(); // Ejecutar al inicio
 }
 
 // ===== MENÚ MÓVIL =====
@@ -54,18 +79,42 @@ function initMobileMenu() {
     toggle.addEventListener('click', () => {
         menu.classList.toggle('active');
         const icon = toggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+        
+        if (menu.classList.contains('active')) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
     });
 
+    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
-            toggle.querySelector('i').classList.add('fa-bars');
-            toggle.querySelector('i').classList.remove('fa-times');
-            document.body.style.overflow = 'auto';
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+            document.body.classList.remove('no-scroll');
         });
+    });
+    
+    // Cerrar menú al redimensionar a desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+            document.body.classList.remove('no-scroll');
+        }
     });
 }
 
@@ -74,9 +123,19 @@ function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const targetId = anchor.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
@@ -88,40 +147,53 @@ function initModals() {
     const closeBtns = document.querySelectorAll('.close-modal');
     
     // Abrir modal de contacto
-    document.getElementById('btnEnviarCaso')?.addEventListener('click', () => {
-        document.getElementById('contactModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+    document.getElementById('btnEnviarCaso')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('contactModal');
     });
     
-    document.getElementById('btnEvaluarCaso')?.addEventListener('click', () => {
-        document.getElementById('contactModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+    document.getElementById('btnEvaluarCaso')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('contactModal');
     });
 
     // Cerrar modales
     closeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const modal = btn.closest('.modal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal(modal.id);
         });
     });
 
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal')) {
-            e.target.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal(e.target.id);
         }
     });
-
+    
     // Formulario
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        showNotification('Caso enviado. Te contactaremos pronto.', 'success');
-        document.getElementById('contactModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
+        showNotification('Hemos recibido tu caso. Un asesor te contactará en breve.', 'success');
+        closeModal('contactModal');
         e.target.reset();
     });
+}
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.classList.add('no-scroll');
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
 }
 
 // ===== NOTIFICACIONES =====
@@ -146,12 +218,7 @@ function showNotification(message, type) {
 
 // ===== CALENDLY =====
 function initCalendly() {
-    if (!document.querySelector('script[src*="calendly"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        document.body.appendChild(script);
-    }
+    // Calendly ya está cargado desde el CDN en HTML
 }
 
 window.openCalendly = () => {
@@ -168,7 +235,10 @@ function initButtons() {
         'btnAgendarHeader', 'btnAgendarHero', 'btnAgendarCta', 'btnAgendarContacto'
     ];
     agendarButtons.forEach(id => {
-        document.getElementById(id)?.addEventListener('click', openCalendly);
+        document.getElementById(id)?.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCalendly();
+        });
     });
 }
 
@@ -185,12 +255,17 @@ function initStatsCounter() {
     const clients = document.getElementById('statClients');
     if (!years || !cases || !clients) return;
 
+    // Reset
+    years.textContent = '0';
+    cases.textContent = '0';
+    clients.textContent = '0';
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 startCounter(years, 15);
-                startCounter(cases, 300);
-                startCounter(clients, 150);
+                startCounter(cases, 500);
+                startCounter(clients, 750);
                 observer.unobserve(entry.target);
             }
         });
@@ -224,6 +299,8 @@ class Carousel {
         this.currentIndex = 0;
         this.autoPlayInterval = null;
         this.autoPlayDelay = options.autoPlayDelay || 5000;
+        this.cardsPerView = 1;
+        this.maxIndex = 0;
         
         if (!this.track || !this.prevBtn || !this.nextBtn) return;
         
@@ -236,7 +313,7 @@ class Carousel {
             this.track.appendChild(this.createItemCallback(item));
         });
         
-        // Actualizar cards por vez
+        // Inicializar
         this.updateCardsPerView();
         window.addEventListener('resize', () => this.updateCardsPerView());
         
@@ -249,11 +326,10 @@ class Carousel {
         
         // Pausar al hover
         const container = this.track.closest('.carousel-container');
-        container.addEventListener('mouseenter', () => this.stopAutoPlay());
-        container.addEventListener('mouseleave', () => this.startAutoPlay());
-        
-        // Actualizar botones
-        this.updateButtons();
+        if (container) {
+            container.addEventListener('mouseenter', () => this.stopAutoPlay());
+            container.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
     }
     
     updateCardsPerView() {
@@ -261,55 +337,44 @@ class Carousel {
         if (!viewport) return;
         
         const viewportWidth = viewport.clientWidth;
-        const card = this.track.children[0];
-        if (!card) return;
+        const firstCard = this.track.children[0];
+        if (!firstCard) return;
         
-        const cardStyle = window.getComputedStyle(card);
-        const cardWidth = card.offsetWidth + parseInt(cardStyle.marginRight) || 0;
-        const gap = 32; // 2rem
+        const cardWidth = firstCard.offsetWidth;
+        const gap = window.innerWidth <= 768 ? 16 : 32; // Responsive gap
         
-        this.cardsPerView = Math.floor((viewportWidth + gap) / (cardWidth + gap));
+        this.cardsPerView = Math.max(1, Math.floor((viewportWidth + gap) / (cardWidth + gap)));
         this.maxIndex = Math.max(0, this.items.length - this.cardsPerView);
         this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
         this.updateTransform();
     }
     
     updateTransform() {
-        const card = this.track.children[0];
-        if (!card) return;
+        const firstCard = this.track.children[0];
+        if (!firstCard) return;
         
-        const cardWidth = card.offsetWidth;
-        const gap = 32;
+        const cardWidth = firstCard.offsetWidth;
+        const gap = window.innerWidth <= 768 ? 16 : 32;
         const translateX = -this.currentIndex * (cardWidth + gap);
         this.track.style.transform = `translateX(${translateX}px)`;
-        this.updateButtons();
     }
     
     next() {
         if (this.currentIndex < this.maxIndex) {
             this.currentIndex++;
-            this.updateTransform();
         } else {
-            // Volver al inicio
-            this.currentIndex = 0;
-            this.updateTransform();
+            this.currentIndex = 0; // Loop
         }
+        this.updateTransform();
     }
     
     prev() {
         if (this.currentIndex > 0) {
             this.currentIndex--;
-            this.updateTransform();
         } else {
-            // Ir al final
-            this.currentIndex = this.maxIndex;
-            this.updateTransform();
+            this.currentIndex = this.maxIndex; // Loop
         }
-    }
-    
-    updateButtons() {
-        this.prevBtn.disabled = false;
-        this.nextBtn.disabled = false;
+        this.updateTransform();
     }
     
     startAutoPlay() {
@@ -355,8 +420,7 @@ function initLegalCarousel() {
                 <p style="margin-bottom:1.5rem;">${topic.desc}</p>
                 <button class="btn btn-primary" onclick="openCalendly()">Asesoría Especializada</button>
             `;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            openModal('topicModal');
         });
         return card;
     });

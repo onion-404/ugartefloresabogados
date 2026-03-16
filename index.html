@@ -1,313 +1,435 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ugarte Flores Abogados | Estrategia Legal de Alto Nivel</title>
-    <meta name="description" content="Defensa penal estratégica, litigio civil y mercantil. Protegemos tu libertad y patrimonio.">
-    
+    <meta
+      name="description"
+      content="Defensa penal estratégica, litigio civil y mercantil. Protegemos tu libertad y patrimonio."
+    />
+
     <!-- Hojas de Estilo -->
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- === FAVICON === -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png" />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- Calendly -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Loader -->
     <div id="loader" class="loader">
-        <div class="loader-spinner"></div>
+      <div class="loader-spinner"></div>
     </div>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/525512345678?text=Hola%2C%20necesito%20asesor%C3%ADa%20legal%20estrat%C3%A9gica." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span>Contacto Inmediato</span>
+    <a
+      href="https://wa.me/525512345678?text=Hola%2C%20necesito%20asesor%C3%ADa%20legal%20estrat%C3%A9gica."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+      <span>Contacto Inmediato</span>
     </a>
 
     <!-- Header -->
     <header class="header" id="header">
-        <div class="container header-container">
-            <div class="logo">
-                <img src="/img/logo.png" alt="Ugarte Flores Abogados">
-            </div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav-menu" id="navMenu">
-                <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#temas-legales" class="nav-link">Temas Legales</a></li>
-                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
-                    <li><a href="#instagram" class="nav-link">Instagram</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <button class="btn btn-primary" id="btnAgendarHeader">Agendar Cita</button>
-                </div>
-            </nav>
+      <div class="container header-container">
+        <div class="logo">
+          <img src="/img/logo.png" alt="Ugarte Flores Abogados" />
         </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#temas-legales" class="nav-link">Temas Legales</a></li>
+            <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+            <li><a href="#instagram" class="nav-link">Instagram</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn btn-primary" id="btnAgendarHeader">
+              Agendar Cita
+            </button>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <section id="inicio" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <span class="hero-badge">Estrategia. Defensa. Resultados.</span>
-                <h1 class="hero-title">Defensa Legal <span>Estratégica en CDMX</span></h1>
-                <p class="hero-subtitle">Protegemos tu libertad y patrimonio con un enfoque innovador y personalizado. Más de 15 años de experiencia.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary btn-large" id="btnAgendarHero">Agendar Consultoría</button>
-                    <a href="https://wa.me/525512345678?text=Hola%2C%20requiero%20una%20consulta%20legal%20urgente." class="btn btn-outline btn-large" target="_blank">Enviar WhatsApp</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" id="statYears">0</span>
-                        <span class="stat-label">Años</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="statCases">+0</span>
-                        <span class="stat-label">Casos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="statClients">+0</span>
-                        <span class="stat-label">Clientes</span>
-                    </div>
-                </div>
+      <!-- HERO SECTION -->
+      <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <span class="hero-badge">Estrategia. Defensa. Resultados.</span>
+          <h1 class="hero-title">
+            Defensa Legal <span>Estratégica y de Élite</span>
+          </h1>
+          <p class="hero-subtitle">
+            Protegemos tu libertad y patrimonio con un enfoque innovador y
+            personalizado. Más de 15 años de experiencia.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary btn-large" id="btnAgendarHero">
+              Agendar Estrategia
+            </button>
+            <a
+              href="https://wa.me/525512345678?text=Hola%2C%20requiero%20una%20consulta%20legal%20urgente."
+              class="btn btn-outline btn-large"
+              target="_blank"
+              >WhatsApp</a
+            >
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="statYears">0</span>
+              <span class="stat-label">Años</span>
             </div>
-        </section>
+            <div class="stat-item">
+              <span class="stat-number" id="statCases">0</span>
+              <span class="stat-label">Casos</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="statClients">0</span>
+              <span class="stat-label">Clientes</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- SERVICIOS -->
-        <section id="servicios" class="services">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Expertise</span>
-                    <h2 class="section-title">Áreas de <span>Práctica</span></h2>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-gavel"></i></div>
-                        <h3>Derecho Civil</h3>
-                        <p>Litigios de alta complejidad, recuperación de inmuebles y contratos.</p>
-                        <button class="service-link" onclick="openCalendly()">Consultar <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Derecho Mercantil</h3>
-                        <p>Disposiciones indebidas, cancelación de créditos y controversias.</p>
-                        <button class="service-link" onclick="openCalendly()">Consultar <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3>Derecho Penal</h3>
-                        <p>Defensa penal estratégica, amparos y representación a víctimas.</p>
-                        <button class="service-link" onclick="openCalendly()">Consultar <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
+      <!-- SERVICIOS -->
+      <section id="servicios" class="services">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Expertise</span>
+            <h2 class="section-title">Áreas de <span>Práctica</span></h2>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-gavel"></i></div>
+              <h3>Derecho Civil</h3>
+              <p>
+                Litigios de alta complejidad, recuperación de inmuebles y
+                contratos.
+              </p>
+              <button class="service-link" onclick="openCalendly()">
+                Consultar <i class="fas fa-arrow-right"></i>
+              </button>
             </div>
-        </section>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+              <h3>Derecho Mercantil</h3>
+              <p>
+                Disposiciones indebidas, cancelación de créditos y
+                controversias.
+              </p>
+              <button class="service-link" onclick="openCalendly()">
+                Consultar <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <h3>Derecho Penal</h3>
+              <p>
+                Defensa penal estratégica, amparos y representación a víctimas.
+              </p>
+              <button class="service-link" onclick="openCalendly()">
+                Consultar <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- TEMAS LEGALES - CARRUSEL -->
-        <section id="temas-legales" class="legal-topics">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Conocimiento</span>
-                    <h2 class="section-title">Temas de <span>Interés Legal</span></h2>
-                </div>
-                
-                <div class="carousel-container">
-                    <button class="carousel-arrow carousel-arrow-left" id="legalPrevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-viewport">
-                        <div class="carousel-track" id="legalTrack"></div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow-right" id="legalNextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <button class="btn btn-primary btn-large" id="btnEvaluarCaso">Evaluar mi caso</button>
-                </div>
-            </div>
-        </section>
+      <!-- TEMAS LEGALES - CARRUSEL -->
+      <section id="temas-legales" class="legal-topics">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Conocimiento</span>
+            <h2 class="section-title">Temas de <span>Interés Legal</span></h2>
+          </div>
 
-        <!-- TESTIMONIOS - CARRUSEL -->
-        <section id="testimonios" class="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Experiencias</span>
-                    <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
-                </div>
-                
-                <div class="carousel-container">
-                    <button class="carousel-arrow carousel-arrow-left" id="testimonialsPrevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-viewport">
-                        <div class="carousel-track" id="testimonialsTrack"></div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow-right" id="testimonialsNextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+          <div class="carousel-container">
+            <button
+              class="carousel-arrow carousel-arrow-left"
+              id="legalPrevBtn"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="legalTrack"></div>
             </div>
-        </section>
+            <button
+              class="carousel-arrow carousel-arrow-right"
+              id="legalNextBtn"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
 
-        <!-- INSTAGRAM - CARRUSEL -->
-        <section id="instagram" class="instagram-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Conecta</span>
-                    <h2 class="section-title">Instagram <span>@ugartefloresabogados</span></h2>
-                </div>
-                
-                <div class="carousel-container">
-                    <button class="carousel-arrow carousel-arrow-left" id="instagramPrevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-viewport">
-                        <div class="carousel-track" id="instagramTrack"></div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow-right" id="instagramNextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="https://www.instagram.com/ugartefloresabogados/" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-instagram"></i> Seguir en Instagram
-                    </a>
-                </div>
-            </div>
-        </section>
+          <div class="text-center mt-4">
+            <button class="btn btn-primary btn-large" id="btnEvaluarCaso">
+              Evaluar mi caso
+            </button>
+          </div>
+        </div>
+      </section>
 
-        <!-- CTA FINAL -->
-        <section class="final-cta">
-            <div class="container">
-                <div class="cta-card">
-                    <h2 class="cta-title">¿Tu libertad o patrimonio están en riesgo?</h2>
-                    <p class="cta-subtitle">El momento de actuar es ahora.</p>
-                    <button class="btn btn-primary btn-large" id="btnAgendarCta">Agendar Consultoría</button>
-                </div>
-            </div>
-        </section>
+      <!-- TESTIMONIOS - CARRUSEL -->
+      <section id="testimonios" class="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Experiencias</span>
+            <h2 class="section-title">
+              Lo que dicen <span>nuestros clientes</span>
+            </h2>
+          </div>
 
-        <!-- CONTACTO -->
-        <section id="contacto" class="contact">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-eyebrow">Comunícate</span>
-                    <h2 class="section-title">Estamos listos para <span>defenderte</span></h2>
-                </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <i class="fas fa-video contact-icon"></i>
-                            <h3>Videollamada</h3>
-                            <p>Reunión virtual de 30 min.</p>
-                            <button class="btn btn-primary btn-small" id="btnAgendarContacto">Agendar</button>
-                        </div>
-                        <div class="contact-card">
-                            <i class="fab fa-whatsapp contact-icon"></i>
-                            <h3>WhatsApp</h3>
-                            <p>Atención prioritaria</p>
-                            <a href="https://wa.me/525512345678?text=Hola%2C%20contacto%20desde%20web." class="btn btn-primary btn-small" target="_blank">Escribir</a>
-                        </div>
-                        <div class="contact-card">
-                            <i class="fas fa-file-alt contact-icon"></i>
-                            <h3>Enviar Caso</h3>
-                            <p>Resumen de tu asunto</p>
-                            <button class="btn btn-primary btn-small" id="btnEnviarCaso">Enviar</button>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.865247384735!2d-99.16853968457818!3d19.42701434523897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35c2b9c2c5%3A0x9b9f9f9f9f9f9f9f!2sPolanco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
+          <div class="carousel-container">
+            <button
+              class="carousel-arrow carousel-arrow-left"
+              id="testimonialsPrevBtn"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="testimonialsTrack"></div>
             </div>
-        </section>
+            <button
+              class="carousel-arrow carousel-arrow-right"
+              id="testimonialsNextBtn"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTAGRAM - CARRUSEL -->
+      <section id="instagram" class="instagram-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Conecta</span>
+            <h2 class="section-title">
+              Instagram <span>@ugartefloresabogados</span>
+            </h2>
+          </div>
+
+          <div class="carousel-container">
+            <button
+              class="carousel-arrow carousel-arrow-left"
+              id="instagramPrevBtn"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="instagramTrack"></div>
+            </div>
+            <button
+              class="carousel-arrow carousel-arrow-right"
+              id="instagramNextBtn"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="text-center mt-4">
+            <a
+              href="https://www.instagram.com/ugartefloresabogados/"
+              class="btn btn-secondary"
+              target="_blank"
+            >
+              <i class="fab fa-instagram"></i> Seguir en Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="final-cta">
+        <div class="container">
+          <div class="cta-card">
+            <h2 class="cta-title">
+              ¿Tu libertad o patrimonio están en riesgo?
+            </h2>
+            <p class="cta-subtitle">El momento de actuar es ahora.</p>
+            <button class="btn btn-primary btn-large" id="btnAgendarCta">
+              Agendar Consultoría
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Comunícate</span>
+            <h2 class="section-title">
+              Estamos listos para <span>defenderte</span>
+            </h2>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="contact-card">
+                <i class="fas fa-video contact-icon"></i>
+                <h3>Videollamada</h3>
+                <p>Reunión virtual de 20 min</p>
+                <button
+                  class="btn btn-primary btn-small"
+                  id="btnAgendarContacto"
+                >
+                  Agendar
+                </button>
+              </div>
+              <div class="contact-card">
+                <i class="fab fa-whatsapp contact-icon"></i>
+                <h3>WhatsApp</h3>
+                <p>Atención prioritaria</p>
+                <a
+                  href="https://wa.me/525512345678?text=Hola%2C%20contacto%20desde%20web."
+                  class="btn btn-primary btn-small"
+                  target="_blank"
+                  >Escribir</a
+                >
+              </div>
+              <div class="contact-card">
+                <i class="fas fa-file-alt contact-icon"></i>
+                <h3>Enviar Caso</h3>
+                <p>Resumen de tu asunto</p>
+                <button class="btn btn-primary btn-small" id="btnEnviarCaso">
+                  Enviar
+                </button>
+              </div>
+            </div>
+
+            <div class="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.865247384735!2d-99.16853968457818!3d19.42701434523897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35c2b9c2c5%3A0x9b9f9f9f9f9f9f9f!2sPolanco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="/img/logo.png" alt="Ugarte Flores Abogados">
-                    <p>Estrategia. Defensa. Resultados.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#temas-legales">Temas Legales</a></li>
-                        <li><a href="#testimonios">Testimonios</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Redes</h4>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/ugartefloresabogados/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/img/logo.png" alt="Ugarte Flores Abogados" />
+            <p>Estrategia. Defensa. Resultados.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Enlaces</h4>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#temas-legales">Temas Legales</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Redes</h4>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/ugartefloresabogados/"
+                class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> Ugarte Flores Abogados</p>
-            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="currentYear"></span> Ugarte Flores Abogados</p>
+        </div>
+      </div>
     </footer>
 
     <!-- MODALES -->
     <div id="topicModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="modalContent"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent"></div>
+      </div>
     </div>
 
     <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Evaluación de Caso</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Nombre completo" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Teléfono" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Describe tu caso" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-large">Enviar</button>
-            </form>
-        </div>
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Evaluación de Caso</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre completo" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Teléfono" required />
+          </div>
+          <div class="form-group">
+            <textarea
+              placeholder="Describe tu caso"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">
+            Enviar
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- Scripts -->
-    <script async src="//www.instagram.com/embed.js"></script>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
