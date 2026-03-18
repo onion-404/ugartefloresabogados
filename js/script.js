@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCalendly();
     initButtons();
     initStatsCounter();
-    initDropdowns(); // Nueva función para dropdowns
+    initDropdowns();
     
     // Inicializar carruseles
     initLegalCarousel();
@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Cargar script de Instagram después de insertar los bloques
     loadInstagramEmbed();
+    
+    // AÑADIR ESTA LÍNEA: Inicializar mejora de modal móvil
+    initMobileModal();
 });
 
 // ===== PRELOADER REAL =====
@@ -710,6 +713,7 @@ function initInstagramCarousel() {
         setTimeout(adjustHeight, 2000);
     }, 500);
 }
+
 // ===== MEJORA PARA MODAL EN MÓVIL =====
 function initMobileModal() {
     const modal = document.getElementById('topicModal');
@@ -737,6 +741,3 @@ function initMobileModal() {
     
     observer.observe(modal, { attributes: true });
 }
-
-// Llamar a la función después de initModals()
-initMobileModal();
