@@ -312,11 +312,6 @@ function openModal(modalId) {
     if (modal) {
         modal.style.display = 'flex';
         document.body.classList.add('no-scroll');
-        
-        // Scroll al inicio del modal
-        setTimeout(() => {
-            modal.scrollTop = 0;
-        }, 50);
     }
 }
 
@@ -353,9 +348,9 @@ function initCalendly() {}
 
 window.openCalendly = () => {
     if (window.Calendly) {
-        Calendly.initPopupWidget({ url: 'https://calendly.com/ugartefloresabogados/consulta-inicial' });
+        Calendly.initPopupWidget({ url: 'https://calendly.com/ugarteflores-abogados/30min' });
     } else {
-        window.open('https://calendly.com/ugartefloresabogados/consulta-inicial', '_blank');
+        window.open('https://calendly.com/ugarteflores-abogados/30min', '_blank');
     }
 };
 
