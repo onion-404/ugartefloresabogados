@@ -557,7 +557,7 @@ function initLegalCarousel() {
             title: '¿Cómo demandar al banco?', 
             summary: 'Las instituciones financieras pueden ser demandadas por malas prácticas. Conoce la ruta legal para hacer valer tus derechos.',
             fullText: 'Para demandar a un banco, primero debes agotar la reclamación ante CONDUSEF. Si no hay acuerdo, se puede proceder con una demanda mercantil por incumplimiento de contrato o responsabilidad civil. Los juicios pueden ser largos, pero con asesoría legal experta, las probabilidades de éxito aumentan significativamente. Es importante contar con un abogado especializado en derecho bancario.',
-            bg: 'https://images.unsplash.com/photo-1607944024060-0450380ddd33?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+            bg: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf' 
         }
     ];
 
@@ -615,58 +615,20 @@ function initLegalCarousel() {
     });
 }
 
-// ===== CARRUSEL DE TESTIMONIOS MEJORADO CON IMÁGENES =====
+// ===== CARRUSEL DE TESTIMONIOS =====
 function initTestimonialsCarousel() {
     const testimonials = [
-        { 
-            rating: 5, 
-            text: '"El equipo logró la devolución de $450,000 que el banco me retuvo. Impecables."', 
-            author: 'María López', 
-            role: 'Mercantil',
-            image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80'
-        },
-        { 
-            rating: 5, 
-            text: '"Recuperé mi departamento en Polanco después de 3 años de litigio."', 
-            author: 'Carlos Mendoza', 
-            role: 'Civil',
-            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80'
-        },
-        { 
-            rating: 5, 
-            text: '"Su defensa penal me devolvió la libertad. Eternamente agradecido."', 
-            author: 'Ana Reyes', 
-            role: 'Penal',
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80'
-        },
-        { 
-            rating: 5, 
-            text: '"Cancelaron un crédito que nunca solicité. Rápidos y profesionales."', 
-            author: 'Roberto Sánchez', 
-            role: 'Mercantil',
-            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80'
-        },
-        { 
-            rating: 5, 
-            text: '"Me ayudaron con un conflicto de herencia familiar."', 
-            author: 'Laura Gómez', 
-            role: 'Civil',
-            image: 'https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-        },
-        { 
-            rating: 5, 
-            text: '"Obtuvimos un amparo favorable en tiempo récord."', 
-            author: 'Javier Ruiz', 
-            role: 'Penal',
-            image: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80'
-        }
+        { rating: 5, text: '"El equipo logró la devolución de $450,000 que el banco me retuvo. Impecables."', author: 'María López', role: 'Mercantil' },
+        { rating: 5, text: '"Recuperé mi departamento en Polanco después de 3 años de litigio."', author: 'Carlos Mendoza', role: 'Civil' },
+        { rating: 5, text: '"Su defensa penal me devolvió la libertad. Eternamente agradecido."', author: 'Ana Reyes', role: 'Penal' },
+        { rating: 5, text: '"Cancelaron un crédito que nunca solicité. Rápidos y profesionales."', author: 'Roberto Sánchez', role: 'Mercantil' },
+        { rating: 5, text: '"Me ayudaron con un conflicto de herencia familiar."', author: 'Laura Gómez', role: 'Civil' },
+        { rating: 5, text: '"Obtuvimos un amparo favorable en tiempo récord."', author: 'Javier Ruiz', role: 'Penal' }
     ];
 
     new Carousel('testimonialsTrack', 'testimonialsPrevBtn', 'testimonialsNextBtn', testimonials, (t) => {
         const card = document.createElement('div');
         card.className = 'testimonial-card';
-        card.style.backgroundImage = `url('${t.image}')`;
-        
         const stars = Array(t.rating).fill('<i class="fas fa-star"></i>').join('');
         card.innerHTML = `
             <div class="testimonial-rating">${stars}</div>
@@ -748,3 +710,33 @@ function initInstagramCarousel() {
         setTimeout(adjustHeight, 2000);
     }, 500);
 }
+// ===== MEJORA PARA MODAL EN MÓVIL =====
+function initMobileModal() {
+    const modal = document.getElementById('topicModal');
+    if (!modal) return;
+    
+    // Observar cuando se abre el modal
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'style' && modal.style.display === 'flex') {
+                // Modal abierto - ajustar scroll
+                document.body.classList.add('no-scroll');
+                
+                // En móvil, asegurar que el modal permita scroll
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        modal.scrollTop = 0;
+                    }, 100);
+                }
+            } else if (mutation.attributeName === 'style' && modal.style.display === 'none') {
+                // Modal cerrado - restaurar scroll
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+    
+    observer.observe(modal, { attributes: true });
+}
+
+// Llamar a la función después de initModals()
+initMobileModal();
