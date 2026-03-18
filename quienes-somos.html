@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quienes Somos | Ugarte Flores Abogados</title>
+    <meta
+      name="description"
+      content="Firma legal líder con más de una década de experiencia en materia penal, civil y mercantil. Asesoría jurídica integral, innovadora y orientada a resultados."
+    />
+
+    <!-- Hojas de Estilo -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/quienes-somos.css" />
+
+    <!-- Metadatos -->
+    <meta property="og:title" content="Quienes Somos | Ugarte Flores Abogados">
+    <meta property="og:description" content="Firma legal líder con más de una década de experiencia en materia penal, civil y mercantil. Asesoría jurídica integral, innovadora y orientada a resultados.">
+    <meta property="og:image" content="https://ugartefloresabogados.vercel.app/img/favicon.png">
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://ugartefloresabogados.vercel.app/quienes-somos">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Ugarte Flores Abogados">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quienes Somos | Ugarte Flores Abogados">
+    <meta name="twitter:description" content="Firma legal líder con más de una década de experiencia en materia penal, civil y mercantil. Asesoría jurídica integral, innovadora y orientada a resultados.">
+    <meta name="twitter:image" content="https://ugartefloresabogados.vercel.app/img/favicon.png">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Calendly -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="loader-spinner"></div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/525513619304?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20su%20firma%20legal."
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+      <span>Contacto Inmediato</span>
+    </a>
+
+    <!-- Header (misma estructura que el index, con "Quienes somos" activo) -->
+    <header class="header" id="header">
+      <div class="container header-container">
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li>
+              <a href="/quienes-somos.html" class="nav-link active">Quienes somos</a>
+            </li>
+            <li class="dropdown">
+              <a href="/#servicios" class="nav-link dropdown-toggle">
+                Servicios <i class="fas fa-chevron-down dropdown-arrow"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="derecho-civil.html" class="dropdown-item">Derecho Civil</a></li>
+                <li><a href="derecho-mercantil.html" class="dropdown-item">Derecho Mercantil</a></li>
+                <li><a href="derecho-penal.html" class="dropdown-item">Derecho Penal</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/#temas-legales" class="nav-link">Temas Legales</a>
+            </li>
+            <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn btn-primary" id="btnAgendarHeader">
+              Agendar Cita
+            </button>
+          </div>
+        </nav>
+
+        <!-- Logo (derecha) -->
+        <div class="logo">
+          <a href="/">
+            <img src="img/logo.png" alt="Ugarte Flores Abogados" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION - Quienes Somos (con imagen de fondo) -->
+      <section id="quienes-somos-hero" class="about-hero">
+        <div class="about-hero-overlay"></div>
+        <div class="container about-hero-content">
+          <span class="about-hero-badge" data-aos="fade-up">Nuestra Firma</span>
+          <h1 class="about-hero-title" data-aos="fade-up" data-aos-delay="100">
+            Más de una década <span>defendiendo</span> con estrategia
+          </h1>
+          <p class="about-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+            Somos una firma legal líder y especialista en la solución de controversias
+            en materia penal, civil y mercantil. Nos distinguimos por una atención
+            personalizada e innovadora, incorporando nuevas tecnologías para brindar
+            un servicio ágil, confiable y altamente eficiente.
+          </p>
+        </div>
+        <div class="about-hero-scroll" data-aos="fade-up" data-aos-delay="300">
+          <span>Conoce más</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- FILOSOFÍA / VALORES (con imágenes de fondo en cada card) -->
+      <section class="about-philosophy">
+        <div class="container">
+          <div class="philosophy-grid">
+            <div class="philosophy-item" data-aos="fade-right" data-aos-delay="100">
+              <div class="philosophy-card" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="philosophy-overlay"></div>
+                <div class="philosophy-content">
+                  <div class="philosophy-icon">
+                    <i class="fas fa-bullseye"></i>
+                  </div>
+                  <h3>Enfoque Estratégico</h3>
+                  <p>Cada caso es único. Diseñamos estrategias a medida, analizando todas las variables para anticiparnos y obtener los mejores resultados.</p>
+                </div>
+              </div>
+            </div>
+            <div class="philosophy-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="philosophy-card" style="background-image: url('https://plus.unsplash.com/premium_photo-1661768507909-f961fcff0d45?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="philosophy-overlay"></div>
+                <div class="philosophy-content">
+                  <div class="philosophy-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <h3>Atención Personalizada</h3>
+                  <p>Creemos en la cercanía con nuestros clientes. Te acompañamos en cada etapa del proceso con comunicación clara y transparente.</p>
+                </div>
+              </div>
+            </div>
+            <div class="philosophy-item" data-aos="fade-left" data-aos-delay="300">
+              <div class="philosophy-card" style="background-image: url('https://images.unsplash.com/photo-1588873281272-14886ba1f737?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmlkZW9sbGFtYWRhfGVufDB8fDB8fHww');">
+                <div class="philosophy-overlay"></div>
+                <div class="philosophy-content">
+                  <div class="philosophy-icon">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <h3>Innovación Legal</h3>
+                  <p>Incorporamos nuevas tecnologías para agilizar procesos, ofrecer seguimiento en tiempo real y brindar un servicio de vanguardia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORIA / TRAYECTORIA (con imagen lateral) -->
+      <section class="about-story">
+        <div class="container">
+          <div class="story-grid">
+            <div class="story-content" data-aos="fade-right">
+              <span class="section-eyebrow">Nuestra Trayectoria</span>
+              <h2 class="section-title" style="text-align: left;">Más de <span>10 años</span> de experiencia</h2>
+              <p class="story-text">
+                Fundada hace más de una década, Ugarte Flores Abogados nació con la visión de ofrecer una asesoría jurídica integral
+                que combinara el conocimiento profundo del derecho con un enfoque moderno y estratégico.
+              </p>
+              <p class="story-text">
+                Desde entonces, hemos representado a empresas y particulares en los litigios más complejos del país,
+                construyendo una reputación basada en resultados, ética profesional y un compromiso inquebrantable con
+                la defensa de los intereses de nuestros clientes.
+              </p>
+              <div class="story-stats">
+                <div class="story-stat">
+                  <span class="story-stat-number">10+</span>
+                  <span class="story-stat-label">Años de experiencia</span>
+                </div>
+                <div class="story-stat">
+                  <span class="story-stat-number">100%</span>
+                  <span class="story-stat-label">Casos exitosos</span>
+                </div>
+                <div class="story-stat">
+                  <span class="story-stat-number">100%</span>
+                  <span class="story-stat-label">Enfoque personalizado</span>
+                </div>
+              </div>
+            </div>
+            <div class="story-image" data-aos="fade-left">
+              <img src="https://plus.unsplash.com/premium_photo-1698084059560-9a53de7b816b?q=80&w=1111&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Oficina legal" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIFERENCIAL / QUÉ NOS HACE ÚNICOS (con fondo de imagen y opacidad) -->
+      <section class="about-different">
+        <div class="different-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Nuestro Diferencial</span>
+            <h2 class="section-title">¿Por qué <span>elegirnos?</span></h2>
+          </div>
+          <div class="different-grid">
+            <div class="different-card" data-aos="flip-left" data-aos-delay="100">
+              <i class="fas fa-balance-scale"></i>
+              <h3>Especialización Multidisciplinaria</h3>
+              <p>Abarcamos penal, civil y mercantil con equipos especializados en cada materia.</p>
+            </div>
+            <div class="different-card" data-aos="flip-left" data-aos-delay="200">
+              <i class="fas fa-chart-line"></i>
+              <h3>Orientación a Resultados</h3>
+              <p>Cada estrategia está diseñada para alcanzar el mejor resultado posible en el menor tiempo.</p>
+            </div>
+            <div class="different-card" data-aos="flip-left" data-aos-delay="300">
+              <i class="fas fa-user-tie"></i>
+              <h3>Atención Personalizada</h3>
+              <p>No somos una firma masiva. Te atendemos directamente los socios y abogados senior.</p>
+            </div>
+            <div class="different-card" data-aos="flip-left" data-aos-delay="400">
+              <i class="fas fa-laptop"></i>
+              <h3>Tecnología Aplicada</h3>
+              <p>Seguimiento en tiempo real, expedientes digitales y comunicación ágil vía videollamada.</p>
+            </div>
+            <div class="different-card" data-aos="flip-left" data-aos-delay="500">
+              <i class="fas fa-gavel"></i>
+              <h3>Trayectoria Probada</h3>
+              <p>Más de una década defendiendo los intereses de empresas y particulares.</p>
+            </div>
+            <div class="different-card" data-aos="flip-left" data-aos-delay="600">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Confidencialidad Total</h3>
+              <p>La privacidad de nuestros clientes y sus asuntos es nuestra prioridad.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISIÓN Y VISIÓN (con imágenes de fondo en lugar de iconos) -->
+      <section class="about-mv">
+        <div class="container">
+          <div class="mv-grid">
+            <div class="mv-card mv-mission" data-aos="fade-right">
+              <div class="mv-card-image" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80');">
+                <div class="mv-overlay"></div>
+                <div class="mv-content">
+                  <h3>Nuestra Misión</h3>
+                  <p>Proveer asesoría jurídica integral y representación legal de excelencia, protegiendo la libertad y el patrimonio de nuestros clientes con un enfoque estratégico, ético e innovador.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mv-card mv-vision" data-aos="fade-left">
+              <div class="mv-card-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="mv-overlay"></div>
+                <div class="mv-content">
+                  <h3>Nuestra Visión</h3>
+                  <p>Ser la firma legal de referencia en México por nuestra capacidad de resolver controversias complejas, nuestra atención personalizada y la incorporación de tecnología al servicio del derecho.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPROMISO (frase destacada) - con imagen de fondo sutil -->
+      <section class="about-commitment">
+        <div class="commitment-background"></div>
+        <div class="container">
+          <div class="commitment-card" data-aos="zoom-in">
+            <i class="fas fa-quote-left"></i>
+            <p class="commitment-text">
+              "Nos distinguimos por una atención personalizada e innovadora, incorporando nuevas tecnologías para brindar un servicio ágil, confiable y altamente eficiente."
+            </p>
+            <p class="commitment-author">— Ugarte Flores Abogados</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL (adaptado) -->
+      <section class="final-cta">
+        <div class="container">
+          <div class="cta-card">
+            <h2 class="cta-title">
+              ¿Necesitas asesoría legal estratégica?
+            </h2>
+            <p class="cta-subtitle">Conoce cómo podemos ayudarte.</p>
+            <button class="btn btn-primary btn-large" id="btnAgendarCta">
+              Agendar Consultoría
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="/">
+          <img src="img/logo.png" alt="Ugarte Flores Abogados" />
+        </a>
+        <p class="footer-slogan">Estrategia. Defensa. Resultados.</p>
+        <p class="footer-description">
+          Firma legal especializada en materia penal, civil y mercantil con más de una década de experiencia. Defendemos tu libertad y patrimonio con enfoque estratégico e innovador.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="quienes-somos.html">Quienes somos</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#temas-legales">Temas Legales</a></li>
+          <li><a href="/#testimonios">Testimonios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+        <h4>Redes</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a 
+            href="https://www.instagram.com/ugartefloresabogados/" 
+            class="social-icon" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Línea legal -->
+    <div class="footer-legal">
+      <div class="legal-links">
+        <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+        <span class="separator">|</span>
+        <a href="terminos-condiciones.html">Términos y Condiciones</a>
+        <span class="separator">|</span>
+        <a href="politica-cookies.html">Política de Cookies</a>
+      </div>
+      <div class="copyright">
+        <p>&copy; <span id="currentYear"></span> Ugarte Flores Abogados. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- MODALES -->
+    <div id="topicModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Evaluación de Caso</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Nombre completo" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Teléfono" required />
+          </div>
+          <div class="form-group">
+            <textarea
+              placeholder="Describe tu caso"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

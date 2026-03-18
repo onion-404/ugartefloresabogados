@@ -514,15 +514,51 @@ class Carousel {
     }
 }
 
-// ===== CARRUSEL DE TEMAS LEGALES =====
+// ===== CARRUSEL DE TEMAS LEGALES CON MODAL PROFESIONAL =====
 function initLegalCarousel() {
     const topics = [
-        { icon: 'fa-gavel', title: '¿Cómo saber si tienes una orden de aprehensión?', desc: 'Consulta en el portal del Poder Judicial o acude a los juzgados con asesoría legal.', bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85' },
-        { icon: 'fa-handcuffs', title: '¿Qué hacer ante una detención ilegal?', desc: 'Solicita un abogado inmediatamente, no declares sin asesoría y promueve un amparo.', bg: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f' },
-        { icon: 'fa-hand-holding-heart', title: 'Reparación del daño como víctima', desc: 'Tienes derecho a indemnización por daños materiales y morales.', bg: 'https://images.unsplash.com/photo-1557804506-669a67965ba0' },
-        { icon: 'fa-door-open', title: 'Posibilidades de salir de prisión', desc: 'Existen figuras como libertad bajo fianza o beneficios preliberacionales.', bg: 'https://images.pexels.com/photos/6863193/pexels-photo-6863193.jpeg' },
-        { icon: 'fa-credit-card', title: 'Cargos bancarios no reconocidos', desc: 'Repórtalos al banco y presenta queja ante CONDUSEF.', bg: 'https://images.unsplash.com/photo-1551836022-4c4c79ecde51' },
-        { icon: 'fa-university', title: '¿Cómo demandar al banco?', desc: 'Inicia con reclamación en CONDUSEF y luego vía judicial.', bg: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf' }
+        { 
+            icon: 'fa-gavel', 
+            title: '¿Cómo saber si tienes una orden de aprehensión?', 
+            summary: 'Una orden de aprehensión es un mandamiento judicial para detener a una persona. Existen formas legales y seguras de verificarlo sin poner en riesgo tu libertad.',
+            fullText: 'Para saber si tienes una orden de aprehensión, puedes consultar en el portal del Poder Judicial de la Federación o acudir a los juzgados con un abogado. Es importante no autoincriminarse y evitar la confrontación directa. Un abogado especializado puede verificar tu situación sin exponerte a una detención inmediata. La asesoría legal oportuna es crucial para proteger tus derechos y tomar las medidas adecuadas según tu caso particular.',
+            bg: 'https://plus.unsplash.com/premium_photo-1723629658464-90cf72a29e54?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        },
+        { 
+            icon: 'fa-handcuffs', 
+            title: '¿Qué hacer ante una detención ilegal?', 
+            summary: 'Una detención ilegal vulnera tus derechos humanos. Saber cómo reaccionar puede marcar la diferencia entre recuperar tu libertad o enfrentar consecuencias graves.',
+            fullText: 'Ante una detención ilegal, mantén la calma y solicita un abogado de inmediato. No declares sin asesoría legal, ya que cualquier declaración puede ser usada en tu contra. Es crucial promover un amparo y documentar cualquier evidencia de violencia o irregularidades durante la detención. Recuerda que tienes derecho a ser presentado sin demora ante un ministerio público y a que se te informen los motivos de tu detención.',
+            bg: 'https://images.unsplash.com/photo-1606022831434-91293aebf25a?q=80&w=1666&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        },
+        { 
+            icon: 'fa-hand-holding-heart', 
+            title: 'Reparación del daño como víctima', 
+            summary: 'Como víctima de un delito, tienes derecho a que se repare el daño material y moral causado. Conocer tus derechos es el primer paso para ejercerlos.',
+            fullText: 'La reparación del daño incluye la restitución del bien, la indemnización por daños materiales y morales, así como medidas de rehabilitación y no repetición. Para reclamarla, debes acreditarla dentro del proceso penal. Contar con representación legal especializada maximiza las posibilidades de obtener una compensación justa. La reparación integral busca devolver a la víctima al estado anterior al delito.',
+            bg: 'https://images.unsplash.com/photo-1686771416282-3888ddaf249b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        },
+        { 
+            icon: 'fa-door-open', 
+            title: 'Posibilidades de salir de prisión', 
+            summary: 'Existen figuras legales como la libertad bajo fianza o los beneficios preliberacionales que pueden permitir enfrentar el proceso en libertad.',
+            fullText: 'Dependiendo del delito, es posible obtener la libertad provisional bajo caución si el delito no es grave. Para delitos graves, existen otras estrategias de defensa. En etapas avanzadas, se pueden solicitar beneficios como la preliberación, siempre que se cumplan los requisitos de conducta y tiempo de condena. Cada caso es único y requiere un análisis detallado por un abogado penalista.',
+            bg: 'https://images.unsplash.com/photo-1646297804981-1cefdf960180?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        },
+        { 
+            icon: 'fa-credit-card', 
+            title: 'Cargos bancarios no reconocidos', 
+            summary: 'Detectar cargos no reconocidos a tiempo es fundamental. La ley te protege, pero debes actuar rápido y seguir el procedimiento correcto.',
+            fullText: 'Ante cargos no reconocidos, repórtalos inmediatamente al banco y presenta una queja formal ante CONDUSEF. El banco tiene la obligación de investigar y, en su caso, reembolsar el monto. Si no obtienes respuesta favorable, se puede iniciar un procedimiento contencioso o una demanda mercantil. Conserva todos los comprobantes y la comunicación con el banco como evidencia.',
+            bg: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        },
+        { 
+            icon: 'fa-university', 
+            title: '¿Cómo demandar al banco?', 
+            summary: 'Las instituciones financieras pueden ser demandadas por malas prácticas. Conoce la ruta legal para hacer valer tus derechos.',
+            fullText: 'Para demandar a un banco, primero debes agotar la reclamación ante CONDUSEF. Si no hay acuerdo, se puede proceder con una demanda mercantil por incumplimiento de contrato o responsabilidad civil. Los juicios pueden ser largos, pero con asesoría legal experta, las probabilidades de éxito aumentan significativamente. Es importante contar con un abogado especializado en derecho bancario.',
+            bg: 'https://images.unsplash.com/photo-1607944024060-0450380ddd33?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' 
+        }
     ];
 
     new Carousel('legalTrack', 'legalPrevBtn', 'legalNextBtn', topics, (topic) => {
@@ -538,11 +574,40 @@ function initLegalCarousel() {
         card.addEventListener('click', () => {
             const modal = document.getElementById('topicModal');
             const content = document.getElementById('modalContent');
+            
+            // Crear contenido profesional para el modal
             content.innerHTML = `
-                <i class="fas ${topic.icon}" style="font-size:3rem; color:var(--primary); margin-bottom:1rem;"></i>
-                <h2 style="margin-bottom:1rem;">${topic.title}</h2>
-                <p style="margin-bottom:1.5rem;">${topic.desc}</p>
-                <button class="btn btn-primary" onclick="openCalendly()">Asesoría Especializada</button>
+                <div class="modal-article">
+                    <div class="modal-article-header">
+                        <i class="fas ${topic.icon}"></i>
+                        <h2>${topic.title}</h2>
+                    </div>
+                    
+                    <div class="modal-article-body">
+                        <div class="modal-article-summary">
+                            <p><strong>Resumen ejecutivo</strong> ${topic.summary}</p>
+                        </div>
+                        
+                        <div class="modal-article-full">
+                            <p>${topic.fullText}</p>
+                        </div>
+                        
+                        <div class="modal-divider">
+                            <span class="modal-divider-line"></span>
+                            <span>Acciones recomendadas</span>
+                            <span class="modal-divider-line"></span>
+                        </div>
+                        
+                        <div class="modal-article-actions">
+                            <a href="#" class="btn btn-outline" onclick="event.preventDefault(); alert('Redirigiendo al artículo completo...');">
+                                <i class="fas fa-book-open"></i> Leer artículo completo
+                            </a>
+                            <button class="btn btn-primary" onclick="openCalendly(); closeModal('topicModal');">
+                                <i class="fas fa-calendar-check"></i> Asesoría Especializada
+                            </button>
+                        </div>
+                    </div>
+                </div>
             `;
             openModal('topicModal');
         });
@@ -550,20 +615,58 @@ function initLegalCarousel() {
     });
 }
 
-// ===== CARRUSEL DE TESTIMONIOS =====
+// ===== CARRUSEL DE TESTIMONIOS MEJORADO CON IMÁGENES =====
 function initTestimonialsCarousel() {
     const testimonials = [
-        { rating: 5, text: '"El equipo logró la devolución de $450,000 que el banco me retuvo. Impecables."', author: 'María López', role: 'Mercantil' },
-        { rating: 5, text: '"Recuperé mi departamento en Polanco después de 3 años de litigio."', author: 'Carlos Mendoza', role: 'Civil' },
-        { rating: 5, text: '"Su defensa penal me devolvió la libertad. Eternamente agradecido."', author: 'Ana Reyes', role: 'Penal' },
-        { rating: 5, text: '"Cancelaron un crédito que nunca solicité. Rápidos y profesionales."', author: 'Roberto Sánchez', role: 'Mercantil' },
-        { rating: 5, text: '"Me ayudaron con un conflicto de herencia familiar."', author: 'Laura Gómez', role: 'Civil' },
-        { rating: 5, text: '"Obtuvimos un amparo favorable en tiempo récord."', author: 'Javier Ruiz', role: 'Penal' }
+        { 
+            rating: 5, 
+            text: '"El equipo logró la devolución de $450,000 que el banco me retuvo. Impecables."', 
+            author: 'María López', 
+            role: 'Mercantil',
+            image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80'
+        },
+        { 
+            rating: 5, 
+            text: '"Recuperé mi departamento en Polanco después de 3 años de litigio."', 
+            author: 'Carlos Mendoza', 
+            role: 'Civil',
+            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80'
+        },
+        { 
+            rating: 5, 
+            text: '"Su defensa penal me devolvió la libertad. Eternamente agradecido."', 
+            author: 'Ana Reyes', 
+            role: 'Penal',
+            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80'
+        },
+        { 
+            rating: 5, 
+            text: '"Cancelaron un crédito que nunca solicité. Rápidos y profesionales."', 
+            author: 'Roberto Sánchez', 
+            role: 'Mercantil',
+            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80'
+        },
+        { 
+            rating: 5, 
+            text: '"Me ayudaron con un conflicto de herencia familiar."', 
+            author: 'Laura Gómez', 
+            role: 'Civil',
+            image: 'https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        },
+        { 
+            rating: 5, 
+            text: '"Obtuvimos un amparo favorable en tiempo récord."', 
+            author: 'Javier Ruiz', 
+            role: 'Penal',
+            image: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80'
+        }
     ];
 
     new Carousel('testimonialsTrack', 'testimonialsPrevBtn', 'testimonialsNextBtn', testimonials, (t) => {
         const card = document.createElement('div');
         card.className = 'testimonial-card';
+        card.style.backgroundImage = `url('${t.image}')`;
+        
         const stars = Array(t.rating).fill('<i class="fas fa-star"></i>').join('');
         card.innerHTML = `
             <div class="testimonial-rating">${stars}</div>
