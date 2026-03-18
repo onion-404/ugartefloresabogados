@@ -573,3 +573,236 @@
         font-size: 1rem;
     }
 }
+
+/* AÑADIR AL FINAL DEL ARCHIVO quienes-somos.css */
+
+/* ===== FILOSOFÍA - CARDS BLANCAS SIMPLES ===== */
+.philosophy-grid--simple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.philosophy-card-simple {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid transparent;
+    height: 100%;
+}
+
+.philosophy-card-simple:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+    border-color: var(--secondary);
+}
+
+.philosophy-icon-simple {
+    width: 80px;
+    height: 80px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: var(--transition);
+}
+
+.philosophy-card-simple:hover .philosophy-icon-simple {
+    background: var(--primary);
+    transform: rotate(360deg);
+}
+
+.philosophy-icon-simple i {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.philosophy-card-simple:hover .philosophy-icon-simple i {
+    color: var(--white);
+}
+
+.philosophy-card-simple h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.philosophy-card-simple p {
+    color: var(--neutral);
+    line-height: 1.7;
+}
+
+/* ===== DIFERENCIAL - FONDO SÓLIDO ===== */
+.about-different--solid {
+    background: var(--offwhite);
+    padding: 6rem 0;
+    position: relative;
+}
+
+.about-different--solid .section-header .section-eyebrow,
+.about-different--solid .section-header .section-title,
+.about-different--solid .section-header .section-title span {
+    color: var(--primary);
+}
+
+.about-different--solid .section-header .section-title span {
+    color: var(--accent);
+}
+
+/* ===== MISIÓN Y VISIÓN - CARDS BLANCAS SIMPLES ===== */
+.about-mv--simple {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.mv-grid--simple {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mv-card-simple {
+    background: var(--offwhite);
+    padding: 3rem 2.5rem;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid transparent;
+    text-align: center;
+    height: 100%;
+}
+
+.mv-card-simple:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+    border-color: var(--secondary);
+    background: var(--white);
+}
+
+.mv-icon-simple {
+    width: 100px;
+    height: 100px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    transition: var(--transition);
+}
+
+.mv-card-simple:hover .mv-icon-simple {
+    background: var(--primary);
+    transform: rotate(360deg);
+}
+
+.mv-icon-simple i {
+    font-size: 3rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.mv-card-simple:hover .mv-icon-simple i {
+    color: var(--white);
+}
+
+.mv-card-simple h3 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.mv-card-simple p {
+    color: var(--neutral);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .philosophy-grid--simple {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-grid--simple {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .philosophy-card-simple {
+        padding: 2rem 1.5rem;
+    }
+    
+    .philosophy-icon-simple {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .philosophy-icon-simple i {
+        font-size: 1.8rem;
+    }
+    
+    .mv-grid--simple {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .mv-card-simple {
+        padding: 2rem 1.5rem;
+    }
+    
+    .mv-icon-simple {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .mv-icon-simple i {
+        font-size: 2.5rem;
+    }
+    
+    .mv-card-simple h3 {
+        font-size: 1.8rem;
+    }
+    
+    .mv-card-simple p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-icon-simple {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .philosophy-icon-simple i {
+        font-size: 1.5rem;
+    }
+    
+    .philosophy-card-simple h3 {
+        font-size: 1.3rem;
+    }
+    
+    .mv-icon-simple {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .mv-icon-simple i {
+        font-size: 2rem;
+    }
+    
+    .mv-card-simple h3 {
+        font-size: 1.5rem;
+    }
+}
