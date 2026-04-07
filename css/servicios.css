@@ -561,3 +561,21 @@
         min-height: 300px;
     }
 }
+
+/* ===== HERO ESPECÍFICO PARA AMPARO ===== */
+.hero--amparo {
+    background-image: url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=1920&q=80');
+}
+
+.hero--amparo .hero-content {
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* ===== RESPONSIVE PARA AMPARO ===== */
+@media (max-width: 768px) {
+    .hero--amparo .hero-content {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+}

@@ -115,7 +115,7 @@ body.no-scroll {
 
 .logo img {
     height: 45px;
-    filter: brightness(0) invert(1);
+    /* filter: brightness(0) invert(1); */
     transition: var(--transition);
     position: relative;
     z-index: 1002;
@@ -2086,4 +2086,128 @@ body.no-scroll {
         font-size: 2rem;
         z-index: 10000;
     }
+}
+
+/* ===== WHATSAPP MODAL OPCIONES ===== */
+.whatsapp-options-modal .whatsapp-modal-content {
+    max-width: 450px;
+    padding: 2rem;
+}
+
+.whatsapp-options-modal h3 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.whatsapp-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.whatsapp-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--offwhite);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.whatsapp-option:hover {
+    background: #fff;
+    border-color: var(--secondary);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.whatsapp-option i:first-child {
+    font-size: 2rem;
+    color: #25D366;
+}
+
+.whatsapp-option .option-text {
+    flex: 1;
+}
+
+.whatsapp-option .option-text strong {
+    display: block;
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.whatsapp-option .option-text span {
+    font-size: 0.8rem;
+    color: var(--neutral);
+}
+
+.whatsapp-option i:last-child {
+    color: var(--neutral);
+    font-size: 0.9rem;
+}
+
+.whatsapp-option:hover i:last-child {
+    color: var(--primary);
+    transform: translateX(3px);
+}
+
+/* Estilo para el botón flotante de WhatsApp que ahora es un div */
+.whatsapp-float {
+    cursor: pointer;
+}
+
+/* ===== SCROLL CAMBIO DE LOGO ===== */
+.logo-img {
+    transition: all 0.3s ease;
+}
+
+/* ===== RESPONSIVE WHATSAPP MODAL ===== */
+@media (max-width: 768px) {
+    .whatsapp-options-modal .whatsapp-modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+        width: calc(100% - 2rem);
+    }
+    
+    .whatsapp-option {
+        padding: 0.8rem 1rem;
+    }
+    
+    .whatsapp-option i:first-child {
+        font-size: 1.5rem;
+    }
+    
+    .whatsapp-option .option-text strong {
+        font-size: 0.9rem;
+    }
+    
+    .whatsapp-option .option-text span {
+        font-size: 0.7rem;
+    }
+}
+
+/* ===== SERVICES - Modificado para 2 columnas ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

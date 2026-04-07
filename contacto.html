@@ -100,7 +100,6 @@
             <li>
               <a href="/quienes-somos.html" class="nav-link">Quienes somos</a>
             </li>
-            <!-- NUEVO ÍTEM -->
             <li class="dropdown">
               <a href="/#servicios" class="nav-link dropdown-toggle">
                 Servicios <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -121,16 +120,21 @@
                     >Derecho Penal</a
                   >
                 </li>
+                <li>
+                  <a href="/derecho-amparo.html" class="dropdown-item"
+                    >Amparo</a
+                  >
+                </li>
               </ul>
             </li>
             <li>
-              <a href="/#temas-legales" class="nav-link">Temas Legales</a>
+              <a href="/#temas-legales" class="nav-link">Temas de Interes</a>
             </li>
             <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
           </ul>
           <div class="nav-actions">
             <button class="btn btn-primary" id="btnAgendarHeader">
-              Agendar Cita
+              Agendar Asesoría
             </button>
           </div>
         </nav>
@@ -138,14 +142,19 @@
         <!-- Logo (ahora a la derecha) -->
         <div class="logo">
           <a href="/">
-            <img src="img/logo.png" alt="Ugarte Flores Abogados" />
+            <img
+              src="img/logo.png"
+              alt="Ugarte Flores Abogados"
+              class="logo-img"
+              id="logoImg"
+            />
           </a>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- HERO DE CONTACTO -->
+      <!-- HERO -->
       <section class="hero hero--contact">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -188,7 +197,7 @@
                   <div class="detail-content">
                     <h3>Teléfono</h3>
                     <p><a href="tel:5513619304">(55) 1361 9304</a></p>
-                    <span class="detail-note">Lun-Vie 9:00 a 18:00</span>
+                    <!-- <span class="detail-note">Lun-Vie 9:00 a 18:00</span> -->
                   </div>
                 </div>
 
@@ -204,7 +213,7 @@
                         >contacto@ugartefloresabogados.com</a
                       >
                     </p>
-                    <span class="detail-note">Respuesta en 24h hábiles</span>
+                    <!-- <span class="detail-note">Respuesta en 24h hábiles</span> -->
                   </div>
                 </div>
 
@@ -216,16 +225,17 @@
                   <div class="detail-content">
                     <h3>Oficina</h3>
                     <p>
-                      Av. Presidente Masaryk 101<br />
-                      Col. Polanco, CDMX<br />
-                      C.P. 11560
+                      Insurgentes San Borja,<br />
+                      Alcaldía Benito Juárez.<br />
+                      C.P. 03100, CDMX
                     </p>
                     <a
-                      href="https://goo.gl/maps/..."
+                      href="https://maps.app.goo.gl/tp92ZHN89VGbBkDT9"
                       target="_blank"
                       class="detail-link"
                     >
-                      <i class="fas fa-external-link-alt"></i> Cómo llegar
+                      <i class="fas fa-external-link-alt"></i> Ver en Google
+                      Maps
                     </a>
                   </div>
                 </div>
@@ -238,9 +248,8 @@
                   <div class="detail-content">
                     <h3>Horario de atención</h3>
                     <p>
-                      Lunes a Viernes: 9:00 - 18:00<br />
-                      Sábados: Previa cita<br />
-                      Domingos: Urgencias vía WhatsApp
+                      Horarios bajo previa cita. Contáctanos para agendar tu
+                      asesoría.
                     </p>
                   </div>
                 </div>
@@ -301,13 +310,11 @@
                   <div class="form-row">
                     <div class="form-group">
                       <select required>
-                        <option value="" disabled selected>
-                          Área de interés *
-                        </option>
+                        <option value="" disabled selected>Servicio *</option>
                         <option value="civil">Derecho Civil</option>
                         <option value="mercantil">Derecho Mercantil</option>
                         <option value="penal">Derecho Penal</option>
-                        <option value="otro">Otro</option>
+                        <option value="otro">Amparo</option>
                       </select>
                     </div>
                   </div>
@@ -315,7 +322,7 @@
                   <div class="form-row">
                     <div class="form-group">
                       <textarea
-                        placeholder="Describe brevemente tu caso *"
+                        placeholder="Te leemos *"
                         rows="5"
                         requiredvisitanosvisítan
                       ></textarea>
@@ -325,11 +332,9 @@
                   <div class="form-row">
                     <div class="form-group checkbox">
                       <label>
-                        <input type="checkbox" required />
                         <span
-                          >Acepto la
-                          <a href="/aviso-privacidad">política de privacidad</a>
-                          y el tratamiento de mis datos *</span
+                          >Al enviar este formulario acepto la Política de
+                          Privacidad. *</span
                         >
                       </label>
                     </div>
@@ -344,8 +349,9 @@
                 </form>
 
                 <p class="form-note">
-                  * Campos obligatorios. Tu información está protegida conforme
-                  a la Ley de Protección de Datos.
+                  * Campos obligatorios. <br />
+                  Tu información está protegida conforme a la Ley de Protección
+                  de Datos.
                 </p>
               </div>
             </div>
@@ -363,7 +369,7 @@
         </div>
         <div class="map-container" data-aos="zoom-in">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.865247384735!2d-99.16853968457818!3d19.42701434523897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35c2b9c2c5%3A0x9b9f9f9f9f9f9f9f!2sPolanco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.482160002988!2d-99.17910706909188!3d19.383231335178895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff9dee85774d%3A0x80a0f69371b471c2!2sInsurgentes%20San%20Borja%2C%2003100%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e1!3m2!1ses!2smx!4v1775505134536!5m2!1ses!2smx"
             width="100%"
             height="450"
             style="border: 0"
@@ -382,7 +388,7 @@
             <div class="quick-card" data-aos="flip-left">
               <i class="fas fa-video"></i>
               <h3>Videollamada</h3>
-              <p>Reunión virtual de 30 minutos.</p>
+              <p>Reunión virtual</p>
               <button class="btn btn-primary btn-small" id="btnAgendarQuick">
                 Agendar ahora
               </button>
@@ -391,7 +397,7 @@
             <div class="quick-card" data-aos="flip-left" data-aos-delay="150">
               <i class="fab fa-whatsapp"></i>
               <h3>WhatsApp</h3>
-              <p>Atención prioritaria para casos urgentes.</p>
+              <p>Atención inmediata</p>
               <a
                 href="https://wa.me/525513619304?text=Hola%2C%20necesito%20atenci%C3%B3n%20urgente."
                 class="btn btn-primary btn-small"
@@ -404,7 +410,7 @@
             <div class="quick-card" data-aos="flip-left" data-aos-delay="300">
               <i class="fas fa-calendar-alt"></i>
               <h3>Presencial</h3>
-              <p>Cita en nuestras oficinas.</p>
+              <p>Previa cita</p>
               <button
                 class="btn btn-primary btn-small"
                 id="btnAgendarPresencial"
@@ -420,12 +426,12 @@
       <section class="final-cta">
         <div class="container">
           <div class="cta-card">
-            <h2 class="cta-title">¿Necesitas ayuda legal inmediata?</h2>
-            <p class="cta-subtitle">
+            <h2 class="cta-title">¿Necesitas ayuda profesional?</h2>
+            <!-- <p class="cta-subtitle">
               No esperes más, tu tranquilidad no tiene precio.
-            </p>
+            </p> -->
             <button class="btn btn-primary btn-large" id="btnAgendarCta">
-              Agendar Consultoría
+              Agendar Asesoría
             </button>
           </div>
         </div>
@@ -455,7 +461,8 @@
               <li><a href="derecho-civil.html">Derecho Civil</a></li>
               <li><a href="derecho-mercantil.html">Derecho Mercantil</a></li>
               <li><a href="derecho-penal.html">Derecho Penal</a></li>
-              <li><a href="/#temas-legales">Temas Legales</a></li>
+              <li><a href="derecho-amparo.html">Amparo</a></li>
+              <li><a href="/#temas-legales">Temas de Interes</a></li>
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
@@ -463,6 +470,22 @@
           <div class="footer-social">
             <h4>Redes</h4>
             <div class="social-icons">
+              <a
+                href="https://www.facebook.com/ugartefloresabogados"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="mailto:contacto@ugartefloresabogados.com"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-google"></i>
+              </a>
               <a
                 href="#"
                 class="social-icon"
@@ -516,6 +539,7 @@
         <h2>Evaluación de Caso</h2>
         <form id="contactForm">
           <div class="form-group">
+            7447
             <input type="text" placeholder="Nombre completo" required />
           </div>
           <div class="form-group">

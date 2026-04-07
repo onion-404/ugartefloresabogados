@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Derecho Civil | Ugarte Flores Abogados</title>
+    <title>Amparo | Ugarte Flores Abogados</title>
     <meta
       name="description"
-      content="Litigios civiles de alta complejidad, recuperación de inmuebles, contratos y sucesiones. Protegemos tu patrimonio en CDMX."
+      content="Juicio de amparo estratégico para proteger tus derechos fundamentales. Defensa contra actos de autoridad, libertad personal y garantías constitucionales."
     />
 
     <!-- Hojas de Estilo -->
@@ -16,11 +16,11 @@
     <!-- Metadatos -->
     <meta
       property="og:title"
-      content="Derecho Civil | Ugarte Flores Abogados"
+      content="Amparo | Ugarte Flores Abogados"
     />
     <meta
       property="og:description"
-      content="Litigios civiles de alta complejidad, recuperación de inmuebles, contratos y sucesiones. Protegemos tu patrimonio en CDMX."
+      content="Juicio de amparo estratégico para proteger tus derechos fundamentales. Defensa contra actos de autoridad, libertad personal y garantías constitucionales."
     />
     <meta
       property="og:image"
@@ -31,7 +31,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:url"
-      content="https://ugartefloresabogados.vercel.app/derecho-civil"
+      content="https://ugartefloresabogados.vercel.app/derecho-amparo"
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
@@ -39,11 +39,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Derecho Civil | Ugarte Flores Abogados"
+      content="Amparo | Ugarte Flores Abogados"
     />
     <meta
       name="twitter:description"
-      content="Litigios civiles de alta complejidad, recuperación de inmuebles, contratos y sucesiones. Protegemos tu patrimonio en CDMX."
+      content="Juicio de amparo estratégico para proteger tus derechos fundamentales. Defensa contra actos de autoridad, libertad personal y garantías constitucionales."
     />
     <meta
       name="twitter:image"
@@ -82,15 +82,37 @@
       <div class="loader-spinner"></div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
-    <a
-      href="https://wa.me/525513619304?text=Hola%2C%20necesito%20asesor%C3%ADa%20en%20Derecho%20Civil."
-      class="whatsapp-float"
-      target="_blank"
-    >
+    <!-- WhatsApp Floating Button con opciones -->
+    <div class="whatsapp-float" id="whatsappFloatBtn">
       <i class="fab fa-whatsapp"></i>
       <span>Contacto Inmediato</span>
-    </a>
+    </div>
+
+    <!-- Modal de opciones de WhatsApp -->
+    <div id="whatsappModal" class="modal whatsapp-options-modal">
+      <div class="modal-content whatsapp-modal-content">
+        <span class="close-modal close-whatsapp-modal">&times;</span>
+        <h3>¿Cómo prefieres contactarnos?</h3>
+        <div class="whatsapp-options">
+          <a href="#" class="whatsapp-option" id="whatsappProfessional">
+            <i class="fab fa-whatsapp"></i>
+            <div class="option-text">
+              <strong>Contactar a un profesional</strong>
+              <span>Habla directamente con un abogado especializado</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="#" class="whatsapp-option" id="whatsappSchedule">
+            <i class="fab fa-whatsapp"></i>
+            <div class="option-text">
+              <strong>Agendar una asesoría</strong>
+              <span>Programa una cita con nuestro equipo legal</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -161,26 +183,24 @@
 
     <main>
       <!-- HERO SECTION -->
-      <section id="inicio" class="hero hero--civil">
+      <section id="inicio" class="hero hero--amparo">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-          <span class="hero-badge">Derecho Civil</span>
+          <span class="hero-badge">Juicio de Amparo</span>
           <h1 class="hero-title">
-            Protegemos tu <span>Patrimonio</span> y tus <span>Derechos</span>
+            Protegemos tus <span>Derechos Fundamentales</span>
           </h1>
           <p class="hero-subtitle">
-            Litigios de alta complejidad, recuperación de inmuebles, contratos y
-            sucesiones. Más de 10 años defendiendo los intereses de nuestros
-            clientes en la Ciudad de México.
+            El juicio de amparo es tu herramienta constitucional contra actos de autoridad que violan tus garantías individuales. Más de 10 años defendiendo la libertad y los derechos de nuestros clientes.
           </p>
           <div class="hero-buttons">
             <button class="btn btn-primary btn-large" id="btnAgendarHero">
               Agendar Asesoría
             </button>
             <a
-              href="https://wa.me/525513619304?text=Hola%2C%20requiero%20una%20consulta%20sobre%20un%20asunto%20civil."
+              href="#"
               class="btn btn-outline btn-large"
-              target="_blank"
+              id="whatsappHeroBtn"
               >Enviar WhatsApp</a
             >
           </div>
@@ -192,134 +212,119 @@
         <div class="container">
           <div class="description-grid">
             <div class="description-text" data-aos="fade-right">
-              <span class="section-eyebrow">Excelencia en litigio</span>
+              <span class="section-eyebrow">Excelencia constitucional</span>
               <h2 class="section-title" style="text-align: left">
-                Derecho <span>Civil</span>
+                Juicio de <span>Amparo</span>
               </h2>
               <p>
-                El derecho civil es la columna vertebral de las relaciones
-                privadas. En Ugarte Flores Abogados, entendemos que detrás de
-                cada contrato, propiedad o sucesión hay un proyecto de vida y un
-                patrimonio que proteger.
+                El juicio de amparo es el medio de control constitucional más importante en México. Permite proteger a las personas contra actos de autoridad que violen sus derechos humanos y garantías fundamentales reconocidas en la Constitución.
               </p>
               <p>
-                Nuestro enfoque combina el conocimiento profundo de la ley con
-                una estrategia de litigio moderna y efectiva. Representamos a
-                nuestros clientes en todo tipo de controversias, desde las
-                negociaciones extrajudiciales hasta los juicios de mayor
-                complejidad.
+                En Ugarte Flores Abogados, entendemos que cuando tus derechos están en riesgo, cada minuto cuenta. Nuestro equipo especializado en amparo diseña estrategias constitucionales ágiles y efectivas para frenar actos arbitrarios, proteger tu libertad y garantizar el respeto a tus garantías individuales.
               </p>
               <div class="features-list">
                 <div class="feature-item">
                   <i class="fas fa-check-circle"></i>
                   <span
-                    >Contamos con un 100% de casos exitosos en materia
-                    civil.</span
+                    >Amparo indirecto y directo en todas las materias.</span
                   >
                 </div>
                 <div class="feature-item">
                   <i class="fas fa-check-circle"></i>
                   <span
-                    >Especialistas en recuperación de inmuebles y
-                    posesión.</span
+                    >Suspensión de actos reclamados para evitar daños irreparables.</span
                   >
                 </div>
                 <div class="feature-item">
                   <i class="fas fa-check-circle"></i>
                   <span
-                    >Redacción y revisión de contratos con visión
-                    preventiva.</span
+                    >Defensa contra órdenes de aprehensión, detenciones ilegales y actos de autoridad.</span
                   >
                 </div>
                 <div class="feature-item">
                   <i class="fas fa-check-circle"></i>
-                  <span>Acompañamiento integral en juicios sucesorios.</span>
+                  <span
+                    >Protección de derechos patrimoniales, laborales y fiscales.</span
+                  >
                 </div>
               </div>
             </div>
             <div class="description-image" data-aos="fade-left">
               <img
                 src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80"
-                alt="Abogado en reunión"
+                alt="Juicio de Amparo"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ÁREAS DE ACCIÓN - ESTILO BLANCO SIMPLE (restaurado) -->
+      <!-- ÁREAS DE ACCIÓN -->
       <section class="practice-areas">
         <div class="container">
           <div class="section-header">
             <span class="section-eyebrow">Nuestra experiencia</span>
-            <h2 class="section-title">Áreas de <span>Acción</span></h2>
+            <h2 class="section-title">Tipos de <span>Amparo</span></h2>
           </div>
           <div class="areas-grid">
-            <!-- Recuperación de Inmuebles -->
+            <!-- Amparo Indirecto -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="100">
-              <i class="fas fa-home"></i>
-              <h3>Recuperación de Inmuebles</h3>
+              <i class="fas fa-gavel"></i>
+              <h3>Amparo Indirecto</h3>
               <p>
-                Desalojos, interdictos y juicios reivindicatorios para recuperar
-                la posesión de tus propiedades.
+                Contra actos de autoridad que no sean judiciales, órdenes de aprehensión, detenciones arbitrarias y violaciones directas a derechos fundamentales.
               </p>
             </div>
 
-            <!-- Contratos Civiles -->
+            <!-- Amparo Directo -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="200">
-              <i class="fas fa-file-signature"></i>
-              <h3>Contratos Civiles</h3>
+              <i class="fas fa-balance-scale"></i>
+              <h3>Amparo Directo</h3>
               <p>
-                Elaboración, revisión y cumplimiento de contratos de
-                compraventa, arrendamiento, prestación de servicios, etc.
+                Contra sentencias definitivas, laudos o resoluciones que pongan fin al juicio, violando garantías procesales en procedimientos judiciales.
               </p>
             </div>
 
-            <!-- Juicios Sucesorios -->
+            <!-- Amparo Administrativo -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="300">
-              <i class="fas fa-tree"></i>
-              <h3>Juicios Sucesorios</h3>
+              <i class="fas fa-building"></i>
+              <h3>Amparo Administrativo</h3>
               <p>
-                Asesoría y representación en testamentos e intestados,
-                protegiendo la voluntad del testador y los derechos de los
-                herederos.
+                Contra actos de autoridades administrativas que afecten tus derechos, como multas, clausuras, negativas de trámites o expropiaciones.
               </p>
             </div>
 
-            <!-- Daños y Perjuicios -->
+            <!-- Amparo Penal -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="400">
-              <i class="fas fa-hand-holding-heart"></i>
-              <h3>Daños y Perjuicios</h3>
+              <i class="fas fa-handcuffs"></i>
+              <h3>Amparo Penal</h3>
               <p>
-                Reclamación de indemnizaciones por responsabilidad civil
-                derivada de accidentes, incumplimientos o actos ilícitos.
+                Defensa contra órdenes de aprehensión, vinculación a proceso, prisión preventiva y violaciones al debido proceso penal.
               </p>
             </div>
 
-            <!-- Obligaciones y Vicios Ocultos -->
+            <!-- Amparo Civil -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="500">
-              <i class="fas fa-people-arrows"></i>
-              <h3>Obligaciones y Vicios Ocultos</h3>
+              <i class="fas fa-home"></i>
+              <h3>Amparo Civil</h3>
               <p>
-                Acciones legales para exigir el cumplimiento de obligaciones o
-                resolver contratos por vicios ocultos en bienes.
+                Contra resoluciones judiciales en materia civil que vulneren garantías como la audiencia, defensa adecuada o propiedad.
               </p>
             </div>
 
-            <!-- Prescripción Adquisitiva -->
+            <!-- Amparo Laboral -->
             <div class="area-card" data-aos="zoom-in-up" data-aos-delay="600">
-              <i class="fas fa-edit"></i>
-              <h3>Prescripción Adquisitiva</h3>
+              <i class="fas fa-briefcase"></i>
+              <h3>Amparo Laboral</h3>
               <p>
-                Regularización de la propiedad a través de la usucapión,
-                convirtiendo la posesión en título de propiedad.
+                Protección de derechos laborales contra laudos o resoluciones que afecten injustamente a trabajadores o patrones.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PROCESO DE TRABAJO - CON IMAGEN DE FONDO EN LA SECCIÓN -->
+      <!-- PROCESO DE TRABAJO -->
       <section class="process process--with-background">
         <div class="process-background"></div>
         <div class="container">
@@ -330,41 +335,37 @@
           <div class="process-steps">
             <div class="step-item" data-aos="fade-up">
               <div class="step-number">1</div>
-              <h3>Análisis Estratégico</h3>
+              <h3>Análisis Constitucional</h3>
               <p>
-                Revisamos a fondo tu caso, documentos y objetivos para diseñar
-                la mejor ruta legal.
+                Evaluamos el acto de autoridad, identificamos el derecho violado y determinamos la viabilidad del amparo.
               </p>
             </div>
             <div class="step-item" data-aos="fade-up" data-aos-delay="150">
               <div class="step-number">2</div>
-              <h3>Plan de Acción</h3>
+              <h3>Suspensión Urgente</h3>
               <p>
-                Definimos la estrategia: negociación, mediación o litigio, con
-                plazos y costos claros.
+                Solicitamos la suspensión del acto reclamado para evitar daños irreparables mientras se resuelve el juicio.
               </p>
             </div>
             <div class="step-item" data-aos="fade-up" data-aos-delay="300">
               <div class="step-number">3</div>
-              <h3>Ejecución y Seguimiento</h3>
+              <h3>Demanda de Amparo</h3>
               <p>
-                Implementamos la estrategia con comunicación constante y
-                reportes de avance.
+                Presentamos la demanda ante el Juez de Distrito o Tribunal Colegiado con una estrategia constitucional sólida.
               </p>
             </div>
             <div class="step-item" data-aos="fade-up" data-aos-delay="450">
               <div class="step-number">4</div>
-              <h3>Cierre y Prevención</h3>
+              <h3>Seguimiento y Resolución</h3>
               <p>
-                Resolvemos el conflicto y te asesoramos para evitar futuros
-                riesgos legales.
+                Damos seguimiento al juicio hasta obtener la sentencia que restituya tus derechos fundamentales.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CASOS DE ÉXITO - ESTILO BLANCO SIMPLE (restaurado) -->
+      <!-- CASOS DE ÉXITO -->
       <section class="success-cases">
         <div class="container">
           <div class="section-header">
@@ -376,34 +377,30 @@
             <div class="case-card" data-aos="flip-left">
               <i class="fas fa-quote-right"></i>
               <p>
-                "Recuperé mi departamento en Polanco después de 3 años de
-                litigio. El equipo fue increíblemente persistente y conocedor."
+                "Obtuvimos un amparo que dejó sin efectos una orden de aprehensión injustificada. Mi libertad estaba en juego y el equipo actuó con rapidez y profesionalismo."
               </p>
-              <h4>— Carlos Mendoza</h4>
-              <span>Recuperación de Inmueble</span>
+              <h4>— Alejandro Ramírez</h4>
+              <span>Amparo Penal</span>
             </div>
 
             <!-- Caso 2 -->
             <div class="case-card" data-aos="flip-left" data-aos-delay="150">
               <i class="fas fa-quote-right"></i>
               <p>
-                "Redactaron el contrato de compraventa de mi nuevo negocio. Todo
-                claro, sin letras chiquitas y con una visión preventiva
-                excelente."
+                "Logramos la suspensión definitiva de una clausura administrativa que afectaba mi negocio. El amparo nos permitió seguir operando mientras se resolvía."
               </p>
-              <h4>— Laura Gómez</h4>
-              <span>Contratos Comerciales</span>
+              <h4>— Patricia Mendoza</h4>
+              <span>Amparo Administrativo</span>
             </div>
 
             <!-- Caso 3 -->
             <div class="case-card" data-aos="flip-left" data-aos-delay="300">
               <i class="fas fa-quote-right"></i>
               <p>
-                "Me ayudaron con el juicio sucesorio de mis padres. Fueron
-                empáticos y resolvieron todo en menos de un año."
+                "El amparo directo que promovieron revocó una sentencia civil injusta que me obligaba a pagar una indemnización millonaria."
               </p>
-              <h4>— Roberto Sánchez</h4>
-              <span>Juicio Sucesorio Intestamentario</span>
+              <h4>— Fernando Ortega</h4>
+              <span>Amparo Civil</span>
             </div>
           </div>
         </div>
@@ -418,37 +415,27 @@
           </div>
           <div class="faq-grid">
             <div class="faq-item" data-aos="fade-up">
-              <h3>¿Cuánto tiempo dura un juicio civil?</h3>
+              <h3>¿Qué es el juicio de amparo?</h3>
               <p>
-                Depende de la complejidad y la carga del juzgado. Un juicio
-                ordinario puede durar de 1 a 3 años. Siempre buscamos vías
-                alternas como la mediación para acortar plazos.
+                Es un medio de control constitucional que protege los derechos humanos reconocidos en la Constitución y tratados internacionales contra actos de autoridad que los violen.
               </p>
             </div>
             <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h3>
-                ¿Qué necesito para demandar la recuperación de un inmueble?
-              </h3>
+              <h3>¿Cuánto tiempo tengo para promover un amparo?</h3>
               <p>
-                Es fundamental contar con el título de propiedad y, en su caso,
-                el contrato de arrendamiento. Nosotros te ayudamos a recabar
-                todas las pruebas necesarias.
+                Generalmente son 15 días hábiles a partir de que surta efectos la notificación del acto reclamado. Para órdenes de aprehensión o detenciones, el plazo puede ser de 15 días contados a partir de que se ejecuten.
               </p>
             </div>
             <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-              <h3>¿Es obligatorio tener testamento?</h3>
+              <h3>¿Qué es la suspensión del acto reclamado?</h3>
               <p>
-                No es obligatorio, pero es altamente recomendable para evitar
-                conflictos familiares y asegurar que tus bienes se distribuyan
-                según tu voluntad. Un juicio intestado es más tardado y costoso.
+                Es una medida cautelar que solicita detener temporalmente los efectos del acto de autoridad mientras se resuelve el amparo, para evitar daños irreparables al quejoso.
               </p>
             </div>
             <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-              <h3>¿Qué es la prescripción adquisitiva?</h3>
+              <h3>¿Contra qué actos procede el amparo?</h3>
               <p>
-                Es un juicio para adquirir la propiedad de un bien inmueble por
-                haberlo poseído de manera pacífica, continua y pública durante
-                cierto tiempo (5 años en materia civil en CDMX).
+                Contra leyes autoaplicativas, actos de autoridades (penales, civiles, administrativas, laborales, fiscales), omisiones y violaciones a derechos humanos cometidas por particulares con autorización del Estado.
               </p>
             </div>
           </div>
@@ -459,8 +446,8 @@
       <section class="final-cta">
         <div class="container">
           <div class="cta-card">
-            <h2 class="cta-title">¿Tu patrimonio está en riesgo?</h2>
-            <p class="cta-subtitle">El momento de actuar es ahora.</p>
+            <h2 class="cta-title">¿Tus derechos están siendo violados?</h2>
+            <p class="cta-subtitle">El amparo es tu mejor defensa. Actúa ahora.</p>
             <button class="btn btn-primary btn-large" id="btnAgendarCta">
               Agendar Asesoría
             </button>
@@ -496,9 +483,9 @@
                 <h3>WhatsApp</h3>
                 <p>Atención inmediata</p>
                 <a
-                  href="https://wa.me/525513619304?text=Hola%2C%20contacto%20desde%20web.%20Me%20interesa%20el%20área%20civil."
+                  href="#"
                   class="btn btn-primary btn-small"
-                  target="_blank"
+                  id="whatsappContactBtn"
                   >Escribir</a
                 >
               </div>
@@ -537,9 +524,9 @@
             </a>
             <p class="footer-slogan">Estrategia. Defensa. Resultados.</p>
             <p class="footer-description">
-              Firma legal especializada en materia penal, civil y mercantil con
-              más de una década de experiencia. Defendemos tu libertad y
-              patrimonio con enfoque estratégico e innovador.
+              Firma legal especializada en materia penal, civil, mercantil y amparo con
+              más de una década de experiencia. Defendemos tu libertad, patrimonio y
+              derechos fundamentales con enfoque estratégico e innovador.
             </p>
           </div>
 
@@ -638,7 +625,7 @@
           </div>
           <div class="form-group">
             <textarea
-              placeholder="Describe tu caso (ej. problema con un contrato, herencia, etc.)"
+              placeholder="Describe tu caso (ej. acto de autoridad, orden de aprehensión, sentencia injusta, etc.)"
               rows="4"
               required
             ></textarea>

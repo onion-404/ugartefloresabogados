@@ -95,7 +95,7 @@
     <!-- Header -->
     <header class="header" id="header">
       <div class="container header-container">
-        <!-- Botón hamburguesa -->
+        <!-- Botón hamburguesa (ahora a la izquierda) -->
         <button class="menu-toggle" id="menuToggle" aria-label="Menú">
           <i class="fas fa-bars"></i>
         </button>
@@ -104,7 +104,7 @@
         <nav class="nav-menu" id="navMenu">
           <ul class="nav-list">
             <li>
-              <a href="quienes-somos.html" class="nav-link active">Quienes somos</a>
+              <a href="/quienes-somos.html" class="nav-link">Quienes somos</a>
             </li>
             <li class="dropdown">
               <a href="/#servicios" class="nav-link dropdown-toggle">
@@ -112,32 +112,48 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="derecho-civil.html" class="dropdown-item">Derecho Civil</a>
+                  <a href="/derecho-civil.html" class="dropdown-item"
+                    >Derecho Civil</a
+                  >
                 </li>
                 <li>
-                  <a href="derecho-mercantil.html" class="dropdown-item">Derecho Mercantil</a>
+                  <a href="/derecho-mercantil.html" class="dropdown-item"
+                    >Derecho Mercantil</a
+                  >
                 </li>
                 <li>
-                  <a href="derecho-penal.html" class="dropdown-item">Derecho Penal</a>
+                  <a href="/derecho-penal.html" class="dropdown-item"
+                    >Derecho Penal</a
+                  >
+                </li>
+                <li>
+                  <a href="/derecho-amparo.html" class="dropdown-item"
+                    >Amparo</a
+                  >
                 </li>
               </ul>
             </li>
             <li>
-              <a href="/#temas-legales" class="nav-link">Temas Legales</a>
+              <a href="/#temas-legales" class="nav-link">Temas de Interes</a>
             </li>
-            <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
           </ul>
           <div class="nav-actions">
             <button class="btn btn-primary" id="btnAgendarHeader">
-              Agendar Cita
+              Agendar Asesoría
             </button>
           </div>
         </nav>
 
-        <!-- Logo (derecha) -->
+        <!-- Logo (ahora a la derecha) -->
         <div class="logo">
           <a href="/">
-            <img src="img/logo.png" alt="Ugarte Flores Abogados" />
+            <img
+              src="img/logo.png"
+              alt="Ugarte Flores Abogados"
+              class="logo-img"
+              id="logoImg"
+            />
           </a>
         </div>
       </div>
@@ -152,7 +168,11 @@
           <h1 class="about-hero-title" data-aos="fade-up" data-aos-delay="100">
             Más de una década <span>defendiendo</span> con estrategia
           </h1>
-          <p class="about-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          <p
+            class="about-hero-subtitle"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Somos una firma legal líder y especialista en la solución de
             controversias en materia penal, civil y mercantil. Nos distinguimos
             por una atención personalizada e innovadora, incorporando nuevas
@@ -171,30 +191,52 @@
         <div class="container">
           <div class="philosophy-grid philosophy-grid--simple">
             <!-- Enfoque Estratégico -->
-            <div class="philosophy-card-simple" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="philosophy-card-simple"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <div class="philosophy-icon-simple">
                 <i class="fas fa-bullseye"></i>
               </div>
               <h3>Enfoque Estratégico</h3>
-              <p>Cada caso es único. Diseñamos estrategias a medida, analizando todas las variables para anticiparnos y obtener los mejores resultados.</p>
+              <p>
+                Cada caso es único. Diseñamos estrategias a medida, analizando
+                todas las variables para anticiparnos y obtener los mejores
+                resultados.
+              </p>
             </div>
-            
+
             <!-- Atención Personalizada -->
-            <div class="philosophy-card-simple" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="philosophy-card-simple"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div class="philosophy-icon-simple">
                 <i class="fas fa-handshake"></i>
               </div>
               <h3>Atención Personalizada</h3>
-              <p>Creemos en la cercanía con nuestros clientes. Te acompañamos en cada etapa del proceso con comunicación clara y transparente.</p>
+              <p>
+                Creemos en la cercanía con nuestros clientes. Te acompañamos en
+                cada etapa del proceso con comunicación clara y transparente.
+              </p>
             </div>
-            
+
             <!-- Innovación Legal -->
-            <div class="philosophy-card-simple" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="philosophy-card-simple"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <div class="philosophy-icon-simple">
                 <i class="fas fa-microchip"></i>
               </div>
               <h3>Innovación Legal</h3>
-              <p>Incorporamos nuevas tecnologías para agilizar procesos, ofrecer seguimiento en tiempo real y brindar un servicio de vanguardia.</p>
+              <p>
+                Incorporamos nuevas tecnologías para agilizar procesos, ofrecer
+                seguimiento en tiempo real y brindar un servicio de vanguardia.
+              </p>
             </div>
           </div>
         </div>
@@ -227,10 +269,10 @@
                   <span class="story-stat-number">10+</span>
                   <span class="story-stat-label">Años de experiencia</span>
                 </div>
-                <div class="story-stat">
+                <!-- <div class="story-stat">
                   <span class="story-stat-number">100%</span>
                   <span class="story-stat-label">Casos exitosos</span>
-                </div>
+                </div> -->
                 <div class="story-stat">
                   <span class="story-stat-number">100%</span>
                   <span class="story-stat-label">Enfoque personalizado</span>
@@ -255,35 +297,78 @@
             <h2 class="section-title">¿Por qué <span>elegirnos?</span></h2>
           </div>
           <div class="different-grid">
-            <div class="different-card" data-aos="flip-left" data-aos-delay="100">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="100"
+            >
               <i class="fas fa-balance-scale"></i>
               <h3>Especialización Multidisciplinaria</h3>
-              <p>Abarcamos penal, civil y mercantil con equipos especializados en cada materia.</p>
+              <p>
+                Contamos con equipos especializados en materia penal, civil,
+                mercantil y de amparo.
+              </p>
             </div>
-            <div class="different-card" data-aos="flip-left" data-aos-delay="200">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="200"
+            >
               <i class="fas fa-chart-line"></i>
               <h3>Orientación a Resultados</h3>
-              <p>Cada estrategia está diseñada para alcanzar el mejor resultado posible en el menor tiempo.</p>
+              <p>
+                Cada estrategia está diseñada para alcanzar el mejor resultado
+                posible en el menor tiempo.
+              </p>
             </div>
-            <div class="different-card" data-aos="flip-left" data-aos-delay="300">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="300"
+            >
               <i class="fas fa-user-tie"></i>
               <h3>Atención Personalizada</h3>
-              <p>No somos una firma masiva. Te atendemos directamente los socios y abogados senior.</p>
+              <p>
+                Somos una firma integrada por profesionales altamente
+                capacitados.
+              </p>
             </div>
-            <div class="different-card" data-aos="flip-left" data-aos-delay="400">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="400"
+            >
               <i class="fas fa-laptop"></i>
               <h3>Tecnología Aplicada</h3>
-              <p>Seguimiento en tiempo real, expedientes digitales y comunicación ágil vía videollamada.</p>
+              <p>
+                Seguimiento en tiempo real, expedientes digitales y comunicación
+                ágil vía videollamada.
+              </p>
+              <p>Aprovechamos los avances de la tecnología.</p>
             </div>
-            <div class="different-card" data-aos="flip-left" data-aos-delay="500">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="500"
+            >
               <i class="fas fa-gavel"></i>
               <h3>Trayectoria Probada</h3>
-              <p>Más de una década defendiendo los intereses de empresas y particulares.</p>
+              <p>
+                Más de una década defendiendo los intereses de empresas y
+                particulares de alto perfil.
+              </p>
             </div>
-            <div class="different-card" data-aos="flip-left" data-aos-delay="600">
+            <div
+              class="different-card"
+              data-aos="flip-left"
+              data-aos-delay="600"
+            >
               <i class="fas fa-shield-alt"></i>
               <h3>Confidencialidad Total</h3>
-              <p>La privacidad de nuestros clientes y sus asuntos es nuestra prioridad.</p>
+              <p>
+                La privacidad de nuestros clientes y sus asuntos es nuestra
+                prioridad.
+              </p>
             </div>
           </div>
         </div>
@@ -299,16 +384,25 @@
                 <i class="fas fa-flag"></i>
               </div>
               <h3>Nuestra Misión</h3>
-              <p>Proveer asesoría jurídica integral y representación legal de excelencia, protegiendo la libertad y el patrimonio de nuestros clientes con un enfoque estratégico, ético e innovador.</p>
+              <p>
+                Proveer asesoría jurídica integral y representación legal de
+                excelencia, protegiendo la libertad y el patrimonio de nuestros
+                clientes con un enfoque estratégico, ético e innovador.
+              </p>
             </div>
-            
+
             <!-- Visión -->
             <div class="mv-card-simple" data-aos="fade-left">
               <div class="mv-icon-simple">
                 <i class="fas fa-eye"></i>
               </div>
               <h3>Nuestra Visión</h3>
-              <p>Ser la firma legal de referencia en México por nuestra capacidad de resolver controversias complejas, nuestra atención personalizada y la incorporación de tecnología al servicio del derecho.</p>
+              <p>
+                Ser la firma legal de referencia en México por nuestra capacidad
+                de resolver controversias complejas, nuestra atención
+                personalizada y la incorporación de tecnología al servicio del
+                derecho.
+              </p>
             </div>
           </div>
         </div>
@@ -337,7 +431,7 @@
             <h2 class="cta-title">¿Necesitas asesoría legal estratégica?</h2>
             <p class="cta-subtitle">Conoce cómo podemos ayudarte.</p>
             <button class="btn btn-primary btn-large" id="btnAgendarCta">
-              Agendar Consultoría
+              Agendar Asesoría
             </button>
           </div>
         </div>
@@ -367,7 +461,8 @@
               <li><a href="derecho-civil.html">Derecho Civil</a></li>
               <li><a href="derecho-mercantil.html">Derecho Mercantil</a></li>
               <li><a href="derecho-penal.html">Derecho Penal</a></li>
-              <li><a href="/#temas-legales">Temas Legales</a></li>
+              <li><a href="derecho-amparo.html">Amparo</a></li>
+              <li><a href="/#temas-legales">Temas de Interes</a></li>
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
@@ -375,6 +470,22 @@
           <div class="footer-social">
             <h4>Redes</h4>
             <div class="social-icons">
+              <a
+                href="https://www.facebook.com/ugartefloresabogados"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="mailto:contacto@ugartefloresabogados.com"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-google"></i>
+              </a>
               <a
                 href="#"
                 class="social-icon"

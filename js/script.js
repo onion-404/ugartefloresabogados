@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initModals();
-    initCalendly();
     initButtons();
     initStatsCounter();
-    initDropdowns(); // Nueva función para dropdowns
+    initDropdowns();
+    initWhatsAppModal();
+    initLogoScrollChange();
     
     // Inicializar carruseles
     initLegalCarousel();
@@ -21,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar script de Instagram después de insertar los bloques
     loadInstagramEmbed();
 });
+
+// ===== WHATSAPP PARA AGENDAR ASESORÍA =====
+function openWhatsAppAgendarAsesoria() {
+    const numeroWhatsApp = '525513619304';
+    const mensajeAsesoria = 'Hola. Me interesa agendar una asesoría legal con el equipo de Ugarte Flores Abogados. Por favor, indíquenme los horarios disponibles y el procedimiento a seguir. Muchas gracias.';
+    const mensajeCodificado = encodeURIComponent(mensajeAsesoria);
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`, '_blank');
+}
 
 // ===== PRELOADER REAL =====
 function initPreloader() {
@@ -45,6 +54,121 @@ function initPreloader() {
             document.body.classList.remove('no-scroll');
         }
     }, 5000);
+}
+
+// ===== CAMBIO DE LOGO AL HACER SCROLL =====
+function initLogoScrollChange() {
+    const logoImg = document.getElementById('logoImg');
+    if (!logoImg) return;
+    
+    function updateLogo() {
+        if (window.scrollY > 50) {
+            logoImg.src = 'img/logo-verde.png';
+        } else {
+            logoImg.src = 'img/logo.png';
+        }
+    }
+    
+    window.addEventListener('scroll', updateLogo);
+    updateLogo();
+}
+
+// ===== WHATSAPP MODAL CON OPCIONES =====
+function initWhatsAppModal() {
+    const whatsappBtn = document.getElementById('whatsappFloatBtn');
+    const whatsappModal = document.getElementById('whatsappModal');
+    const closeBtn = document.querySelector('.close-whatsapp-modal');
+    const whatsappProfessional = document.getElementById('whatsappProfessional');
+    const whatsappSchedule = document.getElementById('whatsappSchedule');
+    const whatsappHeroBtn = document.getElementById('whatsappHeroBtn');
+    const whatsappContactBtn = document.getElementById('whatsappContactBtn');
+    
+    const numeroWhatsApp = '525513619304';
+    
+    // Mensajes personalizados para la firma
+    const mensajeProfesional = 'Hola. Me comunico desde el sitio web de Ugarte Flores Abogados. Necesito asesoría legal profesional y me gustaría contactar directamente con un abogado especializado. Quedo atento a su respuesta.';
+    
+    const mensajeAsesoria = 'Hola. Me interesa agendar una asesoría legal con el equipo de Ugarte Flores Abogados. Por favor, indíquenme los horarios disponibles y el procedimiento a seguir. Muchas gracias.';
+    
+    // Función para abrir el modal
+    function openModal() {
+        if (whatsappModal) {
+            whatsappModal.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+        }
+    }
+    
+    // Función para cerrar el modal
+    function closeModal() {
+        if (whatsappModal) {
+            whatsappModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+    }
+    
+    // Función para abrir WhatsApp con mensaje específico
+    function openWhatsApp(mensaje) {
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`, '_blank');
+    }
+    
+    // Evento para el botón flotante
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Evento para el botón del hero
+    if (whatsappHeroBtn) {
+        whatsappHeroBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Evento para el botón de contacto
+    if (whatsappContactBtn) {
+        whatsappContactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+    
+    // Opción: Contactar a un profesional
+    if (whatsappProfessional) {
+        whatsappProfessional.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+            setTimeout(() => {
+                openWhatsApp(mensajeProfesional);
+            }, 100);
+        });
+    }
+    
+    // Opción: Agendar una asesoría
+    if (whatsappSchedule) {
+        whatsappSchedule.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+            setTimeout(() => {
+                openWhatsApp(mensajeAsesoria);
+            }, 100);
+        });
+    }
+    
+    // Cerrar modal con la X
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Cerrar modal al hacer clic fuera
+    window.addEventListener('click', (e) => {
+        if (e.target === whatsappModal) {
+            closeModal();
+        }
+    });
 }
 
 // ===== CARGAR SCRIPT DE INSTAGRAM =====
@@ -289,12 +413,14 @@ function initModals() {
     closeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const modal = btn.closest('.modal');
-            closeModal(modal.id);
+            if (modal && modal.id !== 'whatsappModal') {
+                closeModal(modal.id);
+            }
         });
     });
 
     window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal')) {
+        if (e.target.classList.contains('modal') && e.target.id !== 'whatsappModal') {
             closeModal(e.target.id);
         }
     });
@@ -343,27 +469,28 @@ function showNotification(message, type) {
     setTimeout(() => notif.remove(), 4000);
 }
 
-// ===== CALENDLY =====
-function initCalendly() {}
-
-window.openCalendly = () => {
-    if (window.Calendly) {
-        Calendly.initPopupWidget({ url: 'https://calendly.com/ugarteflores-abogados/30min' });
-    } else {
-        window.open('https://calendly.com/ugarteflores-abogados/30min', '_blank');
-    }
-};
-
-// ===== BOTONES DE AGENDAR =====
+// ===== BOTONES DE AGENDAR (AHORA USAN WHATSAPP) =====
 function initButtons() {
     const agendarButtons = [
-        'btnAgendarHeader', 'btnAgendarHero', 'btnAgendarCta', 'btnAgendarContacto'
+        'btnAgendarHeader', 
+        'btnAgendarHero', 
+        'btnAgendarCta', 
+        'btnAgendarContacto'
     ];
+    
     agendarButtons.forEach(id => {
-        document.getElementById(id)?.addEventListener('click', (e) => {
-            e.preventDefault();
-            openCalendly();
-        });
+        const button = document.getElementById(id);
+        if (button) {
+            // Remover event listeners anteriores si existen (evita duplicados)
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Agregar nuevo event listener
+            newButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openWhatsAppAgendarAsesoria();
+            });
+        }
     });
 }
 
@@ -557,7 +684,7 @@ function initLegalCarousel() {
             title: '¿Cómo demandar al banco?', 
             summary: 'Las instituciones financieras pueden ser demandadas por malas prácticas. Conoce la ruta legal para hacer valer tus derechos.',
             fullText: 'Para demandar a un banco, primero debes agotar la reclamación ante CONDUSEF. Si no hay acuerdo, se puede proceder con una demanda mercantil por incumplimiento de contrato o responsabilidad civil. Los juicios pueden ser largos, pero con asesoría legal experta, las probabilidades de éxito aumentan significativamente. Es importante contar con un abogado especializado en derecho bancario.',
-            bg: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf' 
+            bg: 'https://images.pexels.com/photos/28280851/pexels-photo-28280851.jpeg?_gl=1*1ltgp1u*_ga*MTcxMDY0Mjc5Ny4xNzc0Mzg2Njcy*_ga_8JE65Q40S6*czE3NzU1MTk3NzAkbzQkZzEkdDE3NzU1MjAzMjgkajQxJGwwJGgw' 
         }
     ];
 
@@ -602,7 +729,7 @@ function initLegalCarousel() {
                             <a href="#" class="btn btn-outline" onclick="event.preventDefault(); alert('Redirigiendo al artículo completo...');">
                                 <i class="fas fa-book-open"></i> Leer artículo completo
                             </a>
-                            <button class="btn btn-primary" onclick="openCalendly(); closeModal('topicModal');">
+                            <button class="btn btn-primary" onclick="openWhatsAppAgendarAsesoria(); closeModal('topicModal');">
                                 <i class="fas fa-calendar-check"></i> Asesoría Especializada
                             </button>
                         </div>
@@ -640,16 +767,15 @@ function initTestimonialsCarousel() {
     });
 }
 
-// ===== CARRUSEL DE INSTAGRAM CON CÓDIGOS REALES Y ALTURA CORREGIDA =====
+// ===== CARRUSEL DE INSTAGRAM =====
 function initInstagramCarousel() {
-    // Códigos de inserción reales de Instagram
     const instagramCodes = [
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWhrWsLke07/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWVN5QMlb5P/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
+        `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DWPfTVgkcax/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
         `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVwoS6cEQet/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
-        
         `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVhp4BEERsy/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
-        
         `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVPYzbGERlZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`,
-        
         `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVM-h6kEa16/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:540px; min-width:326px; width:100%;"></blockquote>`
     ];
 
@@ -657,7 +783,6 @@ function initInstagramCarousel() {
         const container = document.createElement('div');
         container.className = 'instagram-post';
         
-        // Estilos específicos para contener los bloques de Instagram
         Object.assign(container.style, {
             width: '350px',
             minWidth: '350px',
@@ -669,10 +794,8 @@ function initInstagramCarousel() {
             boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
         });
         
-        // Insertar el código HTML
         container.innerHTML = code;
         
-        // Hacer que el bloque de Instagram ocupe toda la altura disponible
         const style = document.createElement('style');
         style.textContent = `
             .instagram-post .instagram-media {
@@ -690,13 +813,11 @@ function initInstagramCarousel() {
         return container;
     });
     
-    // Procesar los bloques después de insertarlos y ajustar altura
     setTimeout(() => {
         if (window.instgrm) {
             window.instgrm.Embeds.process();
         }
         
-        // Ajustar altura de los bloques después de cargar
         const adjustHeight = () => {
             document.querySelectorAll('.instagram-post .instagram-media').forEach(el => {
                 if (el) {
@@ -710,26 +831,23 @@ function initInstagramCarousel() {
         setTimeout(adjustHeight, 2000);
     }, 500);
 }
+
 // ===== MEJORA PARA MODAL EN MÓVIL =====
 function initMobileModal() {
     const modal = document.getElementById('topicModal');
     if (!modal) return;
     
-    // Observar cuando se abre el modal
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.attributeName === 'style' && modal.style.display === 'flex') {
-                // Modal abierto - ajustar scroll
                 document.body.classList.add('no-scroll');
                 
-                // En móvil, asegurar que el modal permita scroll
                 if (window.innerWidth <= 768) {
                     setTimeout(() => {
                         modal.scrollTop = 0;
                     }, 100);
                 }
             } else if (mutation.attributeName === 'style' && modal.style.display === 'none') {
-                // Modal cerrado - restaurar scroll
                 document.body.classList.remove('no-scroll');
             }
         });
@@ -738,5 +856,4 @@ function initMobileModal() {
     observer.observe(modal, { attributes: true });
 }
 
-// Llamar a la función después de initModals()
 initMobileModal();

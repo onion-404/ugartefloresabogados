@@ -3,7 +3,7 @@
 /* Hero específico */
 .hero--contact {
     background-image: url('https://images.unsplash.com/photo-1417733403748-83bbc7c05140?auto=format&fit=crop&w=1920&q=80');
-    min-height: 60vh;
+    min-height: 80vh;
 }
 
 .hero--contact .hero-content {

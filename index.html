@@ -78,15 +78,37 @@
       <div class="loader-spinner"></div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
-    <a
-      href="https://wa.me/525513619304?text=Hola%2C%20necesito%20asesor%C3%ADa%20legal%20estrat%C3%A9gica."
-      class="whatsapp-float"
-      target="_blank"
-    >
+    <!-- WhatsApp Floating Button con opciones -->
+    <div class="whatsapp-float" id="whatsappFloatBtn">
       <i class="fab fa-whatsapp"></i>
       <span>Contacto Inmediato</span>
-    </a>
+    </div>
+
+    <!-- Modal de opciones de WhatsApp -->
+    <div id="whatsappModal" class="modal whatsapp-options-modal">
+      <div class="modal-content whatsapp-modal-content">
+        <span class="close-modal close-whatsapp-modal">&times;</span>
+        <h3>¿Cómo prefieres contactarnos?</h3>
+        <div class="whatsapp-options">
+          <a href="#" class="whatsapp-option" id="whatsappProfessional">
+            <i class="fab fa-whatsapp"></i>
+            <div class="option-text">
+              <strong>Contactar a un profesional</strong>
+              <span>Habla directamente con un abogado especializado</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="#" class="whatsapp-option" id="whatsappSchedule">
+            <i class="fab fa-whatsapp"></i>
+            <div class="option-text">
+              <strong>Agendar una asesoría</strong>
+              <span>Programa una cita con nuestro equipo legal</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Header -->
     <header class="header" id="header">
@@ -102,7 +124,6 @@
             <li>
               <a href="/quienes-somos.html" class="nav-link">Quienes somos</a>
             </li>
-            <!-- NUEVO ÍTEM -->
             <li class="dropdown">
               <a href="/#servicios" class="nav-link dropdown-toggle">
                 Servicios <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -123,16 +144,21 @@
                     >Derecho Penal</a
                   >
                 </li>
+                <li>
+                  <a href="/derecho-amparo.html" class="dropdown-item"
+                    >Amparo</a
+                  >
+                </li>
               </ul>
             </li>
             <li>
-              <a href="/#temas-legales" class="nav-link">Temas Legales</a>
+              <a href="/#temas-legales" class="nav-link">Temas de Interes</a>
             </li>
             <li><a href="/contacto.html" class="nav-link">Contacto</a></li>
           </ul>
           <div class="nav-actions">
             <button class="btn btn-primary" id="btnAgendarHeader">
-              Agendar Cita
+              Agendar Asesoría
             </button>
           </div>
         </nav>
@@ -140,7 +166,12 @@
         <!-- Logo (ahora a la derecha) -->
         <div class="logo">
           <a href="/">
-            <img src="img/logo.png" alt="Ugarte Flores Abogados" />
+            <img
+              src="img/logo.png"
+              alt="Ugarte Flores Abogados"
+              class="logo-img"
+              id="logoImg"
+            />
           </a>
         </div>
       </div>
@@ -152,38 +183,19 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
           <span class="hero-badge">Estrategia. Defensa. Resultados.</span>
-          <h1 class="hero-title">
-            Defensa Legal <span>Estratégica en CDMX</span>
-          </h1>
+          <h1 class="hero-title">Defensa Legal <span>Estratégica</span></h1>
           <p class="hero-subtitle">
             Protegemos tu libertad y patrimonio con un enfoque innovador y
             personalizado. Más de 10 años de experiencia.
           </p>
           <div class="hero-buttons">
             <button class="btn btn-primary btn-large" id="btnAgendarHero">
-              Agendar Consultoría
+              Agendar Asesoría
             </button>
-            <a
-              href="https://wa.me/525513619304?text=Hola%2C%20requiero%20una%20consulta%20legal%20urgente."
-              class="btn btn-outline btn-large"
-              target="_blank"
+            <a href="#" class="btn btn-outline btn-large" id="whatsappHeroBtn"
               >Enviar WhatsApp</a
             >
           </div>
-          <!-- <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" id="statYears">0</span>
-                        <span class="stat-label">Años</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="statCases">0</span>
-                        <span class="stat-label">Casos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" id="statClients">0</span>
-                        <span class="stat-label">Clientes</span>
-                    </div>
-                </div> -->
         </div>
       </section>
 
@@ -198,7 +210,7 @@
             <div
               class="service-card"
               style="
-                background-image: url(&quot;https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80&quot;);
+                background-image: url(https://images.pexels.com/photos/207662/pexels-photo-207662.jpeg?_gl=1*1i3xq0q*_ga*MTcxMDY0Mjc5Ny4xNzc0Mzg2Njcy*_ga_8JE65Q40S6*czE3NzU1MTk3NzAkbzQkZzEkdDE3NzU1MjAwMjUkajQ2JGwwJGgw);
               "
             >
               <div class="service-card-overlay"></div>
@@ -216,7 +228,7 @@
             <div
               class="service-card"
               style="
-                background-image: url(&quot;https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80&quot;);
+                background-image: url(https://images.pexels.com/photos/28280851/pexels-photo-28280851.jpeg?_gl=1*1ltgp1u*_ga*MTcxMDY0Mjc5Ny4xNzc0Mzg2Njcy*_ga_8JE65Q40S6*czE3NzU1MTk3NzAkbzQkZzEkdDE3NzU1MjAzMjgkajQxJGwwJGgw);
               "
             >
               <div class="service-card-overlay"></div>
@@ -234,7 +246,7 @@
             <div
               class="service-card"
               style="
-                background-image: url(&quot;https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2&quot;);
+                background-image: url(https://images.pexels.com/photos/16293861/pexels-photo-16293861.jpeg?_gl=1*18dn9be*_ga*MTcxMDY0Mjc5Ny4xNzc0Mzg2Njcy*_ga_8JE65Q40S6*czE3NzU1MTk3NzAkbzQkZzEkdDE3NzU1MjA1MDQkajU5JGwwJGgw);
               "
             >
               <div class="service-card-overlay"></div>
@@ -245,6 +257,25 @@
                   víctimas.
                 </p>
                 <a href="derecho-penal.html" class="service-link">
+                  Ver más <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Nueva card del servicio Amparo -->
+            <div
+              class="service-card"
+              style="
+                background-image: url(https://images.pexels.com/photos/6077497/pexels-photo-6077497.jpeg?_gl=1*fpiw8q*_ga*MTcxMDY0Mjc5Ny4xNzc0Mzg2Njcy*_ga_8JE65Q40S6*czE3NzU1MTk3NzAkbzQkZzEkdDE3NzU1MjIyNjUkajMkbDAkaDA.);
+              "
+            >
+              <div class="service-card-overlay"></div>
+              <div class="service-card-content">
+                <h3>Amparo</h3>
+                <p>
+                  Protección constitucional estratégica contra actos de
+                  autoridad que vulneran tus derechos fundamentales.
+                </p>
+                <a href="derecho-amparo.html" class="service-link">
                   Ver más <i class="fas fa-arrow-right"></i>
                 </a>
               </div>
@@ -366,7 +397,7 @@
             </h2>
             <p class="cta-subtitle">El momento de actuar es ahora.</p>
             <button class="btn btn-primary btn-large" id="btnAgendarCta">
-              Agendar Consultoría
+              Agendar Asesoría
             </button>
           </div>
         </div>
@@ -387,7 +418,7 @@
               <div class="contact-card">
                 <i class="fas fa-video contact-icon"></i>
                 <h3>Videollamada</h3>
-                <p>Reunión virtual de 30 min.</p>
+                <p>Reunión virtual</p>
                 <button
                   class="btn btn-primary btn-small"
                   id="btnAgendarContacto"
@@ -398,18 +429,18 @@
               <div class="contact-card">
                 <i class="fab fa-whatsapp contact-icon"></i>
                 <h3>WhatsApp</h3>
-                <p>Atención prioritaria</p>
+                <p>Atención inmediata</p>
                 <a
-                  href="https://wa.me/525513619304?text=Hola%2C%20contacto%20desde%20web."
+                  href="#"
                   class="btn btn-primary btn-small"
-                  target="_blank"
+                  id="whatsappContactBtn"
                   >Escribir</a
                 >
               </div>
               <div class="contact-card">
                 <i class="fas fa-file-alt contact-icon"></i>
                 <h3>Enviar Caso</h3>
-                <p>Resumen de tu asunto</p>
+                <p>Te leemos</p>
                 <button class="btn btn-primary btn-small" id="btnEnviarCaso">
                   Enviar
                 </button>
@@ -418,7 +449,7 @@
 
             <div class="contact-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.865247384735!2d-99.16853968457818!3d19.42701434523897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35c2b9c2c5%3A0x9b9f9f9f9f9f9f9f!2sPolanco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7644.9643203644655!2d-99.17938600784139!3d19.38323132754239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff9dee85774d%3A0x80a0f69371b471c2!2sInsurgentes%20San%20Borja%2C%2003100%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e1!3m2!1ses!2smx!4v1775526627398!5m2!1ses!2smx"
                 width="100%"
                 height="100%"
                 style="border: 0"
@@ -454,7 +485,8 @@
               <li><a href="derecho-civil.html">Derecho Civil</a></li>
               <li><a href="derecho-mercantil.html">Derecho Mercantil</a></li>
               <li><a href="derecho-penal.html">Derecho Penal</a></li>
-              <li><a href="/#temas-legales">Temas Legales</a></li>
+              <li><a href="derecho-amparo.html">Amparo</a></li>
+              <li><a href="/#temas-legales">Temas de Interes</a></li>
               <li><a href="contacto.html">Contacto</a></li>
             </ul>
           </div>
@@ -462,6 +494,22 @@
           <div class="footer-social">
             <h4>Redes</h4>
             <div class="social-icons">
+              <a
+                href="https://www.facebook.com/ugartefloresabogados"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="mailto:contacto@ugartefloresabogados.com"
+                class="social-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-google"></i>
+              </a>
               <a
                 href="#"
                 class="social-icon"
